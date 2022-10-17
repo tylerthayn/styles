@@ -1,0 +1,9 @@
+@use "sass:map";
+@use "../functions/BuildList" as *;
+@use "../variables" as *;
+
+@mixin Expander($pre, $post, $property, $values, $unit:1px) {
+	@each $n in $values {
+		.#{$pre}#{$n}#{$post} {#{$property}: $n*$unit;};
+	}
+}

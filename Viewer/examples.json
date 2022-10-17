@@ -1,0 +1,135 @@
+{
+    "theme-preview": [
+        "D:\\TTS\\development\\styles\\Viewer\\examples\\theme-preview\\index.html",
+        "D:\\TTS\\development\\styles\\Viewer\\examples\\theme-preview\\style.css"
+    ],
+    "album": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\album\\index.html"
+    ],
+    "blog": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\blog\\blog.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\blog\\blog.rtl.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\blog\\index.html"
+    ],
+    "carousel": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\carousel\\carousel.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\carousel\\carousel.rtl.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\carousel\\index.html"
+    ],
+    "cheatsheet": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\cheatsheet\\cheatsheet.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\cheatsheet\\cheatsheet.js",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\cheatsheet\\cheatsheet.rtl.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\cheatsheet\\index.html"
+    ],
+    "checkout": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\checkout\\checkout.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\checkout\\checkout.js",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\checkout\\index.html"
+    ],
+    "cover": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\cover\\cover.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\cover\\index.html"
+    ],
+    "dashboard": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\dashboard\\dashboard.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\dashboard\\dashboard.js",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\dashboard\\dashboard.rtl.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\dashboard\\index.html"
+    ],
+    "dropdowns": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\dropdowns\\dropdowns.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\dropdowns\\index.html"
+    ],
+    "features": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\features\\features.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\features\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\features\\unsplash-photo-1.jpg",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\features\\unsplash-photo-2.jpg",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\features\\unsplash-photo-3.jpg"
+    ],
+    "footers": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\footers\\index.html"
+    ],
+    "grid": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\grid\\grid.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\grid\\index.html"
+    ],
+    "headers": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\headers\\headers.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\headers\\index.html"
+    ],
+    "heroes": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\heroes\\bootstrap-docs.png",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\heroes\\bootstrap-themes.png",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\heroes\\heroes.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\heroes\\index.html"
+    ],
+    "jumbotron": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\jumbotron\\index.html"
+    ],
+    "list-groups": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\list-groups\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\list-groups\\list-groups.css"
+    ],
+    "masonry": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\masonry\\index.html"
+    ],
+    "modals": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\modals\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\modals\\modals.css"
+    ],
+    "navbar-bottom": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbar-bottom\\index.html"
+    ],
+    "navbar-fixed": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbar-fixed\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbar-fixed\\navbar-fixed.css"
+    ],
+    "navbar-static": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbar-static\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbar-static\\navbar-static.css"
+    ],
+    "navbars": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbars\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbars\\navbars.css"
+    ],
+    "navbars-offcanvas": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbars-offcanvas\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\navbars-offcanvas\\navbars-offcanvas.css"
+    ],
+    "offcanvas-navbar": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\offcanvas-navbar\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\offcanvas-navbar\\offcanvas-navbar.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\offcanvas-navbar\\offcanvas-navbar.js"
+    ],
+    "pricing": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\pricing\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\pricing\\pricing.css"
+    ],
+    "product": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\product\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\product\\product.css"
+    ],
+    "sidebars": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sidebars\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sidebars\\sidebars.css",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sidebars\\sidebars.js"
+    ],
+    "sign-in": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sign-in\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sign-in\\sign-in.css"
+    ],
+    "starter-template": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\starter-template\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\starter-template\\starter-template.css"
+    ],
+    "sticky-footer": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sticky-footer\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sticky-footer\\sticky-footer.css"
+    ],
+    "sticky-footer-navbar": [
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sticky-footer-navbar\\index.html",
+        "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\sticky-footer-navbar\\sticky-footer-navbar.css"
+    ]
+}

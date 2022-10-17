@@ -1,0 +1,33 @@
+html, body {width: 100%; height: 100%; margin: 0px; padding: 0px}
+body {
+	display: flex;
+	flex-direction: column;
+}
+
+
+.Flex {display: flex;}
+.Flex > .Expand {flex-grow:1;flex-shrink:1;}
+.Flex > .Fixed {flex-grow:0;flex-shrink:0;}
+
+.W100 {width:100%;}
+.H100 {height:100%;}
+
+div.Controls {
+	width: 100%;
+	border: 0px solid black;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+div.ClassControls {
+	width: 90%;
+	margin: 5%;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.form-check {padding: 5px;}

@@ -1,0 +1,11 @@
+@use "mixins/flex" as *;
+@use "mixins/sizes" as *;
+@use "mixins/margins" as *;
+@use "mixins/paddings" as *;
+
+
+@include Flex;
+@include Widths;
+@include Heights;
+@include Margins;
+@include Paddings;

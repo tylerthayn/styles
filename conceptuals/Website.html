@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<title>@TTS/style:Layout</title>
+		<script src="web.core.js"></script>
+		<style>
+html, body {width:100%;height:100%;padding:0px;margin:0px;}
+body {
+	display:flex;flex-direction:column;overflow:hidden;
+	background-color: #d9e5f2ff !important;
+}
+.Toolbar {flex-grow:0;flex-shrink:0;}
+.Footer {
+	flex-grow:0;
+	flex-srhink:0;
+	color: black;
+	height: 30px;
+	background-color: #336699;
+}
+.xFooter i {
+	background-color: black;
+}
+.Main {
+	flex-grow:1;
+	flex-shrink:1;
+	overflow-y:scroll;
+	overflow:auto;
+}
+.bg-secondary {
+  background-image: linear-gradient(#bfbfbf, #999999 50%, #8f8f8f);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid gray;
+}
+.bg-primary {
+  background-image: linear-gradient(#538cc6, #336699 50%, #2e5c8a);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #264d73;
+}
+.bg-dark {
+  background-image: linear-gradient(#0067b8, #003c6b 50%, #003157) !important;
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #001f38;
+}
+.bg-black {
+  background-image: linear-gradient(#262626, #000000 50%, black);
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid black;
+}
+
+.bg-light {
+  background-image: linear-gradient(#9fbbde, #6693ca 50%, #5788c5) !important;
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #4178bc;
+}
+
+.breadcrumb {
+	padding: 5px 5px !important;
+	border: 0px solid black !important;
+	border-radius: 0px !important;
+	background-color: #407fbfff !important;
+}
+
+.breadcrumb a {
+	color: black !important;
+}
+
+.TTS .breadcrumb-item.active {
+	color: #c6c6c6;
+}
+
+.TTS .breadcrumb-item+.breadcrumb-item::before {
+	color: black !important;
+}
+
+.pagination {
+	margin-bottom: 8px !important;
+}
+
+.card {
+	margin: 20px 20px !important;
+	border: 0px solid black !important;
+}
+
+.card-header {
+	 background-image: linear-gradient(#9fbbde, #6693ca 50%, #5788c5) !important;
+  background-repeat: no-repeat;
+  filter: none;
+  border: 1px solid #4178bc;
+}
+
+</style>
+	</head>
+	<body class="TTS">
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="#"><!--<img src="../@images/TTS_50.png" title="TTS Design" class="logo" style="position:relative;top:-25px;left:-5px"/>--></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a></li>
+				<li class="nav-item"> <a class="nav-link" href="#">Features</a></li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown link</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+				<li class="nav-item"> <a class="nav-link" href="#">Pricing</a></li>
+				<li class="nav-item"> <a class="nav-link" href="#">About</a></li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="text" placeholder="Search">
+				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+			</form>
+		</div>
+	</nav>
+
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="#">Home</a></li>
+			<li class="breadcrumb-item"><a href="#">Library</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Data</li>
+		</ol>
+	</nav>
+
+	<div class="container">
+		<div class="alert alert-primary alert-dismissible fade show" role="alert">
+			<strong>Holy guacamole!</strong> You should check in on some of those fields below.
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="card text-center">
+			<div class="card-header">
+				Featured Notify....
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">...TTS Themed NotifyJs</h5>
+				<p class="card-text">Click on the button to see!.</p>
+				<a href="#" class="btn btn-primary Notify">Launch</a>
+			</div>
+			<div class="card-footer">
+				2 days ago
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="card text-center">
+			<div class="card-header">
+				<ul class="nav nav-tabs card-header-tabs">
+					<li class="nav-item">
+						<a class="nav-link active" href="#">Active</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+					</li>
+				</ul>
+			</div>
+			<div class="card-body">
+				<h5 class="card-title">Themed Modal</h5>
+				<p class="card-text">Click to see themed modal</p>
+				<a href="#" class="btn btn-primary ModalLaunch">Launch</a>
+			</div>
+		</div>
+	</div>
+
+	<br><br>
+
+	<div class="container">
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#">Next</a></li>
+			</ul>
+		</nav>
+	</div>
+
+
+	<div class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>Modal body text goes here.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	</body>
+</html>

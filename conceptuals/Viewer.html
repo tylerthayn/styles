@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<title>Viewer</title>
+		<script src="web.core.js"></script>
+<script>
+
+function UpdateView () {
+	let viewWidth = $('.Viewer').width()
+	let viewHeight = $('.Viewer').height()
+	let deviceSize = $('select.Orientation').val() == 'portrait' ? $('select.Device').val().split('x') : $('select.Device').val().split('x').reverse()
+	let deviceWidth = deviceSize[0]
+	let deviceHeight = deviceSize[1]
+	let deviceRatio = deviceWidth/deviceHeight
+
+	if (0) {
+		$('iframe').css('width', deviceSize[0]+'px')
+		$('iframe').css('height', deviceSize[1]+'px')
+
+		
+
+		let scale = 1
+		if ($('.Viewer').width()/$('iframe').width() < $('.Viewer').height()/$('iframe').height()) {
+			scale = $('.Viewer').width()/$('iframe').width()
+			$('iframe').css('-webkit-transform', 'scale('+scale+')')
+
+		} else {
+			scale = $('.Viewer').height()/$('iframe').height()
+			$('iframe').css('-webkit-transform', 'scale('+scale+')')
+		}
+		$('iframe').css('-webkit-transform-origin', '0 0')
+
+		$('.Viewer').css('padding', $('select.Orientation').val() == 'portrait' ? 
+			(($('.Viewer').width() - $('iframe').width()*scale)/2)+'px' : '0px')
+	} else {
+
+		if (deviceRatio < 1) {
+			$('iframe').width($('.Viewer').width()*deviceRatio)
+			$('iframe').height($('.Viewer').height())
+		} else {
+			$('iframe').width($('.Viewer').width())
+			$('iframe').height($('.Viewer').height()/deviceRatio)		
+		}
+
+	}
+	
+	//log('Viewer: '+viewWidth + 'x' + viewHeight)
+	//log('Device: '+deviceWidth + 'x' + deviceHeight+' ('+deviceRatio+')')
+	//log($('iframe').width()+'x'+$('iframe').height()+'('+$('iframe').width()/$('iframe').height()+')')
+	$('iframe')[0].contentWindow.document.body.style.zoom=$('iframe').width()/deviceWidth
+	log($('iframe').width()/deviceWidth)
+	log($('iframe').width()/$('.Viewer').width())
+	
+
+
+}
+
+$(() => {
+	if ($('.Viewer').width() < $('.Viewer').height()) {$('.Viewer').height($('.Viewer').width())}
+	else {$('.Viewer').width($('.Viewer').height())}
+	$('.Viewer').css('margin-left', ((innerWidth - $('.Viewer').width()) / 2).toString() + 'px')
+
+
+	$('select.Device').on('change', UpdateView)
+	$('select.Orientation').on('change', UpdateView)
+	$('select.Site').on('change', () => {
+		$('iframe')[0].src = $('select.Site').val()
+	})
+
+
+
+})
+</script>
+<style>
+html, body {width:100%;height:100%;padding:0px;margin:0px;}
+body {
+	
+	background-color: #d9e5f2ff !important;
+}
+div.Controls {
+	height: 50px;
+	width: 100%;
+}
+
+div.Viewer {
+	width: 100%;
+	height: calc(100% - 50px);
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+iframe {
+	border: 2px solid black !important;
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+
+</style>
+	</head>
+	<body class="TTS">
+<div class="Controls" style="text-align:center">
+	<select class="Device">
+		<option value="720x1560">Samsung Galaxy A10e (720x1560)</option>
+		<option value="2778x1284">iPhone 14 (2778x1284)</option>
+		<option value="200x400">Special (200x400)</option>
+
+	</select>
+
+	<select class="Orientation">
+		<option value="portrait" selected>Portait</option>
+		<option value="landscape">LandScape</option>
+	</select>
+
+	<select class="Site">
+		<option value="WebApp.html" selected>WebApp</option>
+		<option value="WebSite.html">WebSite</option>
+	</select>
+</div>
+
+<div class="Viewer">
+	<iframe src="WebApp.html"></iframe>
+</div>
+
+	</body>
+</html>

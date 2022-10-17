@@ -1,0 +1,8 @@
+
+@function BuildList($min:0, $max:100, $step:5) {
+	$list: [];
+	@for $x from $min/$step through $max/$step {
+		$list: append($list, $x*$step);
+	}
+	@return $list;
+}

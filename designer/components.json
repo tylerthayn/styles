@@ -1,0 +1,14 @@
+{
+    "folder": "components",
+    "components": {
+        "Breadcrumb": "Breadcrumb.html",
+        "Card (Dual)": "Card.Dual.html",
+        "Card": "Card.html",
+        "Card (Tabs)": "Card.Tabs.html",
+        "Dialog": "Dialog.html",
+        "Form": "Form.html",
+        "MenuBar": "MenuBar.html",
+        "Pagination": "Pagination.html",
+        "Toolbar": "Toolbar.html"
+    }
+}

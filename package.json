@@ -1,0 +1,38 @@
+{
+  "name": "@tyler.thayn/styles",
+  "version": "0.1.0",
+  "description": "Base styles set",
+  "main": "index.js",
+  "scripts": {
+    "build-themes": "node .Build/scripts/BuildThemes.js",
+    "clone-bootstrap": "git clone https://github.com/twbs/bootstrap.git",
+	"init": "npm run-script clone-bootstrap && npm run-script build-themes && npm run-script init-viewer",
+    "init-viewer": "node .Build/scripts/InitViewer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tylerthayn/styles.git"
+  },
+  "keywords": [
+    "styles"
+  ],
+  "author": "Tyler Thayn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tylerthayn/styles/issues"
+  },
+  "homepage": "https://github.com/tylerthayn/styles#readme",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "@tyler.thayn/js.core": "^0.13.14",
+    "@tyler.thayn/web.core": "^0.1.1",
+    "bootstrap": "^5.2.2",
+    "jquery": "^3.6.1",
+    "jqueryui": "^1.11.1",
+    "lodash": "^4.17.21",
+    "requirejs": "^2.3.6",
+    "yamljs": "^0.3.0"
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<title>@tyler.thayn/ui.bar test</title>
+		<style>
+			.Palette {
+				width: 100px;
+			}
+			.Palette > .Color {
+				height: 30px;
+				width: 100%;
+			}
+			.Palette > .Color.Selected {
+				border: 2px solid red;
+			}
+		</style>
+		<script src="../node_modules/@tyler.thayn/web.core/web.core.js"></script>
+		<script>
+require(['jquery', '../src/js/Color'], ($, Color) => {
+	window.Color = Color
+	function GeneratePalette (hex, step = 10) {
+		color = new Color(hex)
+
+		let palette = $('<div class="Palette">')
+		$('body').append(palette)
+		color.Palette(step).forEach(c => {
+			let d = $(`<div class="Color" style="background-color:${c};">`)
+			if (c == color.AsHex()) {
+				d.addClass('Selected')
+			}
+			palette.append(d)
+		})
+	}
+
+	window.GeneratePalette = GeneratePalette
+
+
+	$(() => {
+		
+	})
+})
+		</script>
+	</head>
+	<body class="TTS">
+		<style class="Example">
+			.Ui.Bar {
+				height: 50px;
+				width: 100%;
+				background-color: #369;
+			}
+			.Ui.Bar i {
+				color: white;
+				font-size: 36px;
+				margin: 4px;
+			}
+			.Ui.Bar i:hover {
+				color: red;
+			}
+		</style>
+
+		
+	</body>
+</html>
