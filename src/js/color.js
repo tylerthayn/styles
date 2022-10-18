@@ -8,155 +8,150 @@
 	}
 }(function () {
 
-	function IsHsl (o) {
-		return o.h && o.s && o.l ? true : false
-	}
-
-	function IsRgb (o) {
-		return o.r && o.g && o.b ? true : false
-	}
-
-	function Color (...args) {
-		this.r = 0
-		this.g = 0
-		this.b = 0
-		this.a = 255
-
-		if (Type(args.first, 'string')) {
-			let hex = args.shift().replace(/^#/, '')
-			this.r = parseInt(hex.substr(0,2), 16)
-			this.g = parseInt(hex.substr(2,2), 16)
-			this.b = parseInt(hex.substr(4,2), 16)
-			this.a = hex.length == 8 ? parseInt(hex.substr(6,2), 16) : 255
-		} else if (Type(args.first, 'object')) {
-			if (IsHsl(args.first)) {
-				this.FromHSL(args.first)
-			} else if (IsRgb(args.first)) {
-				this.r = args.first.r
-				this.g = args.first.g
-				this.b = args.first.b
-				this.a = args.first.a || 255
+	function Color (r, g, b) {
+		let rgb = [0, 0, 0]
+		if (typeof r === 'string') {
+			rgb = Color.HexToRgb(r)
+		} else if (typeof r === 'object') {
+			if (r.r && r.g && r.b) {
+				rgb = [r.r, r.g, r.b]
+			} else if (r.h && r.s && r.l) {
+				rgb = Color.HslToRgb([r.h, r.s, r.l])
 			}
+		} else {
+			rgb = [r, g, b]
 		}
 
-		Define(this, 'l', {
+		Define(this, 'hex', {
 			get: () => {
-				return rgbToHsl(this.r, this.g, this.b).l
+				return Color.RgbToHex(...rgb)
+			}
+		})
+		Define(this, 'hsl', {get: () => {return Color.RgbToHsl(...rgb)}})
+
+		Define(this, 'r', {
+			get: () => {
+				return rgb[0]
 			},
-			set: (v) => {
-				let hsl = rgbToHsl(this.r, this.g, this.b)
-				hsl.l = v
-				return this.FromHSL(hsl)
+			set: (r) => {
+				rgb[0] = r
+			}
+		})
+		Define(this, 'g', {
+			get: () => {
+				return rgb[1]
+			},
+			set: (g) => {
+				rgb[1] = g
+			}
+		})
+		Define(this, 'b', {
+			get: () => {
+				return rgb[2]
+			},
+			set: (b) => {
+				rgb[2] = b
 			}
 		})
 
+
+		Define(this, 'h', {
+			get: () => {
+				return Color.RgbToHsl(...rgb)[0]
+			},
+			set: (h) => {
+				let hsl = Color.RgbToHsl(...rgb)
+				hsl[0] = h
+				rgb = Color.HslToRgb(...hsl)
+			}
+		})
+		Define(this, 's', {
+			get: () => {
+				return Color.RgbToHsl(...rgb)[1]
+			},
+			set: (s) => {
+				let hsl = Color.RgbToHsl(...rgb)
+				hsl[1] = s
+				rgb = Color.HslToRgb(...hsl)
+			}
+		})
+		Define(this, 'l', {
+			get: () => {
+				return Color.RgbToHsl(...rgb)[2]
+			},
+			set: (l) => {
+				let hsl = Color.RgbToHsl(...rgb)
+				hsl[2] = l
+				rgb = Color.HslToRgb(...hsl)
+			}
+		})
+
+		Define(this, 'toString', (format = 'hex') => {
+			if (format.toLowerCase() == 'rgb') {
+				return `rgb(${rgb.join(', ')})`
+			} else if (format.toLowerCase() == 'hsl') {
+				return `hsl(${Color.RgbToHsl(...rgb).join(', ')})`
+			} else {
+				return Color.RgbToHex(...rgb)
+			}
+		})
+
+		Define(this, 'Palette', (n) => {
+			let palette = []
+			let hsl = Color.RgbToHsl(...rgb)
+			let steps = 100/n
+
+			let l = hsl[2]
+			while (l >= 0) {
+				palette.push(Color.HslToHex(hsl[0], hsl[1], l))
+				l-=n/100
+			}
+			l = hsl[2]+n/100
+			while (l <= 1) {
+				palette.unshift(Color.HslToHex(hsl[0], hsl[1], l))
+				l+=n/100
+			}
+			return palette
+		})
+
+		Define(this, 'Lighten', (n) => {
+			let hsl = Color.RgbToHsl(...rgb)
+			hsl[2] += n/100
+			rgb = Color.HslToRgb(...hsl)
+			return this
+		})
+
+		Define(this, 'Darken', (n) => {
+			return this.Lighten(-1*n)
+		})
+
+		Define(this, 'Compliment', () => {
+			let comp = [255-rgb[0], 255-rgb[1], 255-rgb[2]]
+			return new Color(...comp)
+		})
+
+		Define(this, 'IsLight', {get: () => {
+			return Math.sqrt(0.299 * (rgb[0] * rgb[0]) + 0.587 * (rgb[1] * rgb[1]) + 0.114 * (rgb[2] * rgb[2])) > 127 ? true : false
+		}})
+
+		Define(this, 'IsDark', {get: () => {return !this.IsLight}})
+
+
 		return this
 	}
 
-	Define(Color, 'HexToRgba', (hex) => {
-		hex = hex.replace(/^#/, '')
-		return {
-			r: parseInt(hex.substr(0,2), 16),
-			g: parseInt(hex.substr(2,2), 16),
-			b: parseInt(hex.substr(4,2), 16),
-			a: hex.length == 8 ? parseInt(hex.substr(6,2), 16) : 255
-		}
-	})
+	Define(Color, 'HEX', (hex) => {return new Color(...Color.HexToRgb(hex))})
+	Define(Color, 'HSL', (...hsl) => {return new Color(...Color.HslToRgb(...hsl))})
+	Define(Color, 'RGB', (...rgb) => {return new Color(...rgb)})
 
-	Define(Color, 'RgbaToHsl', (rgba) => {
-		return rgbToHsl(rgba.r, rgba.g, rgba.b)
-	})
-
-	Define(Color, 'HslToHex', (hsl) => {
-		return Color.RgbaToHex(Color.HslToRgba(hsl))
-	})
-
-	Define(Color, 'HslToRgba', (hsl) => {
-		let rgba = hslToRgb(hsl.h, hsl.s, hsl.l)
-		rgba.a = 255
-		return rgba
-	})
-
-	Define(Color, 'RgbaToHex', (rgba) => {
-		return '#'+toHex(Math.round(rgba.r))+toHex(Math.round(rgba.g))+toHex(Math.round(rgba.b))+toHex(Math.round(rgba.a || 255))
-	})
-
-	Color.prototype.FromHSL = function (hsl) {
-		Extend(this, hslToRgb(hsl.h, hsl.s, hsl.l))
-		return this
-	}
-
-	Color.prototype.Round = function () {
-		this.r = Math.round(this.r)
-		this.g = Math.round(this.g)
-		this.b = Math.round(this.b)
-		this.a = Math.round(this.a)
-	}
-
-	Color.prototype.AsHex = function () {
-		this.Round()
-		return '#'+toHex(this.r)+toHex(this.g)+toHex(this.b)+toHex(this.a)
-	}
-
-	Color.prototype.AsHSL = function () {
-		return rgbToHsl(this.r, this.g, this.b)
-	}
-
-	Color.prototype.Lighten = function (n) {
-		let hsl = rgbToHsl(this.r, this.g, this.b)
-		hsl.l += n/100
-		return new Color(hsl)
-	}
-
-	Color.prototype.Palette = function (n = 10) {
-		let hsl = rgbToHsl(this.r, this.g, this.b)
-		let palette = []
-
-		hsl.l = 1.0
-		while (hsl.l >= 0) {
-			palette.push(Color.HslToHex(hsl))
-			hsl.l -= n/100
-		}
-		return palette
-	}
+	Define(Color,'HexToRgb',hex=>{hex=hex.replace(/^#/,'');return[parseInt(hex.substr(0,2),16),parseInt(hex.substr(2,2),16),parseInt(hex.substr(4,2),16)]});
+	Define(Color,'HexToHsl',hex=>Color.RgbToHsl(...Color.HexToRgb(hex)));	Define(Color,'HslToHex',(...hsl)=>Color.RgbToHex(...Color.HslToRgb(...hsl)));
+	Define(Color,'HslToRgb',(...hsl)=>{let rgb = hslToRgb(...hsl);return [rgb.r, rgb.g, rgb.b]});
+	Define(Color,'RgbToHex',(...rgb)=>'#'+toHex(Math.round(rgb[0]))+toHex(Math.round(rgb[1]))+toHex(Math.round(rgb[2])));
+	Define(Color,'RgbToHsl',(...rgb)=>{let hsl=rgbToHsl(...rgb);return [hsl.h, hsl.s, hsl.l]});
 
 
-	return Color
 
-
-	function toColorObject(c){var x,y,typ,arrlength,i,opacity,match,a,hue,sat,rgb,arr=[],colornames=[],colorhexs=[];x=(c=w3trim(c.toLowerCase())).substr(0,1).toUpperCase();y=c.substr(1);a=1;'R'!=x&&'Y'!=x&&'G'!=x&&'C'!=x&&'B'!=x&&'M'!=x&&'W'!=x||isNaN(y)||6==c.length&&-1==c.indexOf(',')||(c='ncol('+c+')');3==c.length||6==c.length||isNaN(c)||(c='ncol('+c+')');c.indexOf(',')>0&&-1==c.indexOf('(')&&(c='ncol('+c+')');if('rgb'==c.substr(0,3)||'hsl'==c.substr(0,3)||'hwb'==c.substr(0,3)||'ncol'==c.substr(0,4)||'cmyk'==c.substr(0,4)){if('ncol'==c.substr(0,4)){4==c.split(',').length&&-1==c.indexOf('ncola')&&(c=c.replace('ncol','ncola'));typ='ncol';c=c.substr(4)}else if('cmyk'==c.substr(0,4)){typ='cmyk';c=c.substr(4)}else{typ=c.substr(0,3);c=c.substr(3)}arrlength=3;opacity=false;if('a'==c.substr(0,1).toLowerCase()){arrlength=4;opacity=true;c=c.substr(1)}else if('cmyk'==typ){arrlength=4;if(5==c.split(',').length){arrlength=5;opacity=true}}arr=(c=(c=c.replace('(','')).replace(')','')).split(',');if('rgb'==typ){if(arr.length!=arrlength)return emptyObject();for(i=0;i<arrlength;i++){''!=arr[i]&&' '!=arr[i]||(arr[i]='0');if(arr[i].indexOf('%')>-1){arr[i]=arr[i].replace('%','');arr[i]=Number(arr[i]/100);i<3&&(arr[i]=Math.round(255*arr[i]))}if(isNaN(arr[i]))return emptyObject();parseInt(arr[i])>255&&(arr[i]=255);i<3&&(arr[i]=parseInt(arr[i]));3==i&&Number(arr[i])>1&&(arr[i]=1)}rgb={r:arr[0],g:arr[1],b:arr[2]};true==opacity&&(a=Number(arr[3]))}if('hsl'==typ||'hwb'==typ||'ncol'==typ){while(arr.length<arrlength)arr.push('0');'hsl'!=typ&&'hwb'!=typ||parseInt(arr[0])>=360&&(arr[0]=0);for(i=1;i<arrlength;i++){if(arr[i].indexOf('%')>-1){arr[i]=arr[i].replace('%','');arr[i]=Number(arr[i]);if(isNaN(arr[i]))return emptyObject();arr[i]=arr[i]/100}else arr[i]=Number(arr[i]);Number(arr[i])>1&&(arr[i]=1);Number(arr[i])<0&&(arr[i]=0)}if('hsl'==typ){rgb=hslToRgb(arr[0],arr[1],arr[2]);hue=Number(arr[0]);sat=Number(arr[1])}'hwb'==typ&&(rgb=hwbToRgb(arr[0],arr[1],arr[2]));'ncol'==typ&&(rgb=ncolToRgb(arr[0],arr[1],arr[2]));true==opacity&&(a=Number(arr[3]))}if('cmyk'==typ){while(arr.length<arrlength)arr.push('0');for(i=0;i<arrlength;i++){if(arr[i].indexOf('%')>-1){arr[i]=arr[i].replace('%','');arr[i]=Number(arr[i]);if(isNaN(arr[i]))return emptyObject();arr[i]=arr[i]/100}else arr[i]=Number(arr[i]);Number(arr[i])>1&&(arr[i]=1);Number(arr[i])<0&&(arr[i]=0)}rgb=cmykToRgb(arr[0],arr[1],arr[2],arr[3]);true==opacity&&(a=Number(arr[4]))}}else if('ncs'==c.substr(0,3))rgb=ncsToRgb(c);else{match=false;colornames=getColorArr('names');for(i=0;i<colornames.length;i++)if(c.toLowerCase()==colornames[i].toLowerCase()){colorhexs=getColorArr('hexs');match=true;rgb={r:parseInt(colorhexs[i].substr(0,2),16),g:parseInt(colorhexs[i].substr(2,2),16),b:parseInt(colorhexs[i].substr(4,2),16)};break}if(false==match){3==(c=c.replace('#','')).length&&(c=c.substr(0,1)+c.substr(0,1)+c.substr(1,1)+c.substr(1,1)+c.substr(2,1)+c.substr(2,1));for(i=0;i<c.length;i++)if(!isHex(c.substr(i,1)))return emptyObject();arr[0]=parseInt(c.substr(0,2),16);arr[1]=parseInt(c.substr(2,2),16);arr[2]=parseInt(c.substr(4,2),16);for(i=0;i<3;i++)if(isNaN(arr[i]))return emptyObject();rgb={r:arr[0],g:arr[1],b:arr[2]}}}return colorObject(rgb,a,hue,sat)}
-	function colorObject(rgb, a, h, s) {
-    var hsl, hwb, cmyk, ncol, color, hue, sat;
-    if (!rgb) {
-        return emptyObject();
-    }
-    null === a && (a = 1);
-    hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
-    hwb = rgbToHwb(rgb.r, rgb.g, rgb.b);
-    cmyk = rgbToCmyk(rgb.r, rgb.g, rgb.b);
-    hue = h || hsl.h;
-    sat = s || hsl.s;
-    ncol = hueToNcol(hue);
-    color = {
-        red: rgb.r,
-        green: rgb.g,
-        blue: rgb.b,
-        hue: hue,
-        sat: sat,
-        lightness: hsl.l,
-        whiteness: hwb.w,
-        blackness: hwb.b,
-        cyan: cmyk.c,
-        magenta: cmyk.m,
-        yellow: cmyk.y,
-        black: cmyk.k,
-        ncol: ncol,
-        opacity: a,
-        valid: true
-    };
-    return color = roundDecimals(color);
-}
-function emptyObject(){return{red:0,green:0,blue:0,hue:0,sat:0,lightness:0,whiteness:0,blackness:0,cyan:0,magenta:0,yellow:0,black:0,ncol:'R',opacity:1,valid:false}}
 	function getColorArr(x){return'names'==x?['AliceBlue','AntiqueWhite','Aqua','Aquamarine','Azure','Beige','Bisque','Black','BlanchedAlmond','Blue','BlueViolet','Brown','BurlyWood','CadetBlue','Chartreuse','Chocolate','Coral','CornflowerBlue','Cornsilk','Crimson','Cyan','DarkBlue','DarkCyan','DarkGoldenRod','DarkGray','DarkGrey','DarkGreen','DarkKhaki','DarkMagenta','DarkOliveGreen','DarkOrange','DarkOrchid','DarkRed','DarkSalmon','DarkSeaGreen','DarkSlateBlue','DarkSlateGray','DarkSlateGrey','DarkTurquoise','DarkViolet','DeepPink','DeepSkyBlue','DimGray','DimGrey','DodgerBlue','FireBrick','FloralWhite','ForestGreen','Fuchsia','Gainsboro','GhostWhite','Gold','GoldenRod','Gray','Grey','Green','GreenYellow','HoneyDew','HotPink','IndianRed','Indigo','Ivory','Khaki','Lavender','LavenderBlush','LawnGreen','LemonChiffon','LightBlue','LightCoral','LightCyan','LightGoldenRodYellow','LightGray','LightGrey','LightGreen','LightPink','LightSalmon','LightSeaGreen','LightSkyBlue','LightSlateGray','LightSlateGrey','LightSteelBlue','LightYellow','Lime','LimeGreen','Linen','Magenta','Maroon','MediumAquaMarine','MediumBlue','MediumOrchid','MediumPurple','MediumSeaGreen','MediumSlateBlue','MediumSpringGreen','MediumTurquoise','MediumVioletRed','MidnightBlue','MintCream','MistyRose','Moccasin','NavajoWhite','Navy','OldLace','Olive','OliveDrab','Orange','OrangeRed','Orchid','PaleGoldenRod','PaleGreen','PaleTurquoise','PaleVioletRed','PapayaWhip','PeachPuff','Peru','Pink','Plum','PowderBlue','Purple','RebeccaPurple','Red','RosyBrown','RoyalBlue','SaddleBrown','Salmon','SandyBrown','SeaGreen','SeaShell','Sienna','Silver','SkyBlue','SlateBlue','SlateGray','SlateGrey','Snow','SpringGreen','SteelBlue','Tan','Teal','Thistle','Tomato','Turquoise','Violet','Wheat','White','WhiteSmoke','Yellow','YellowGreen']:'hexs'==x?['f0f8ff','faebd7','00ffff','7fffd4','f0ffff','f5f5dc','ffe4c4','000000','ffebcd','0000ff','8a2be2','a52a2a','deb887','5f9ea0','7fff00','d2691e','ff7f50','6495ed','fff8dc','dc143c','00ffff','00008b','008b8b','b8860b','a9a9a9','a9a9a9','006400','bdb76b','8b008b','556b2f','ff8c00','9932cc','8b0000','e9967a','8fbc8f','483d8b','2f4f4f','2f4f4f','00ced1','9400d3','ff1493','00bfff','696969','696969','1e90ff','b22222','fffaf0','228b22','ff00ff','dcdcdc','f8f8ff','ffd700','daa520','808080','808080','008000','adff2f','f0fff0','ff69b4','cd5c5c','4b0082','fffff0','f0e68c','e6e6fa','fff0f5','7cfc00','fffacd','add8e6','f08080','e0ffff','fafad2','d3d3d3','d3d3d3','90ee90','ffb6c1','ffa07a','20b2aa','87cefa','778899','778899','b0c4de','ffffe0','00ff00','32cd32','faf0e6','ff00ff','800000','66cdaa','0000cd','ba55d3','9370db','3cb371','7b68ee','00fa9a','48d1cc','c71585','191970','f5fffa','ffe4e1','ffe4b5','ffdead','000080','fdf5e6','808000','6b8e23','ffa500','ff4500','da70d6','eee8aa','98fb98','afeeee','db7093','ffefd5','ffdab9','cd853f','ffc0cb','dda0dd','b0e0e6','800080','663399','ff0000','bc8f8f','4169e1','8b4513','fa8072','f4a460','2e8b57','fff5ee','a0522d','c0c0c0','87ceeb','6a5acd','708090','708090','fffafa','00ff7f','4682b4','d2b48c','008080','d8bfd8','ff6347','40e0d0','ee82ee','f5deb3','ffffff','f5f5f5','ffff00','9acd32']:void 0}
 	function roundDecimals(c){c.red=Number(c.red.toFixed(0));c.green=Number(c.green.toFixed(0));c.blue=Number(c.blue.toFixed(0));c.hue=Number(c.hue.toFixed(0));c.sat=Number(c.sat.toFixed(2));c.lightness=Number(c.lightness.toFixed(2));c.whiteness=Number(c.whiteness.toFixed(2));c.blackness=Number(c.blackness.toFixed(2));c.cyan=Number(c.cyan.toFixed(2));c.magenta=Number(c.magenta.toFixed(2));c.yellow=Number(c.yellow.toFixed(2));c.black=Number(c.black.toFixed(2));c.ncol=c.ncol.substr(0,1)+Math.round(Number(c.ncol.substr(1)));c.opacity=Number(c.opacity.toFixed(2));return c}
 	function hslToRgb(hue,sat,light){var t1,t2;hue/=60;t1=2*light-(t2=light<=.5?light*(sat+1):light+sat-light*sat);return{r:255*hueToRgb(t1,t2,hue+2),g:255*hueToRgb(t1,t2,hue),b:255*hueToRgb(t1,t2,hue-2)}}
@@ -173,6 +168,32 @@ function emptyObject(){return{red:0,green:0,blue:0,hue:0,sat:0,lightness:0,white
 	function cl(x){console.log(x)}
 	function w3trim(x){return x.replace(/^\s+|\s+$/g,'')}
 	function isHex(x){return'0123456789ABCDEFabcdef'.indexOf(x)>-1}
+
+
+function isLight(color) {
+  let r, g, b, hsp;
+  // Check the format of the color, HEX or RGB?
+  if (color.match(/^rgb/)) {
+    color = color.match(
+      /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
+    );
+
+    r = color[1];
+    g = color[2];
+    b = color[3];
+  } else {
+    color = +('0x' + color.slice(1).replace(color.length < 5 && /./g, '$&$&'));
+    r = color >> 16;
+    g = (color >> 8) & 255;
+    b = color & 255;
+  }
+  // HSP (Highly Sensitive Poo) equation from http://alienryderflex.com/hsp.html
+  hsp = Math.sqrt(0.299 * (r * r) + 0.587 * (g * g) + 0.114 * (b * b));
+
+  return hsp > 127 ? true : false;
+}
+
+
 	window.w3color = w3color;
 
 

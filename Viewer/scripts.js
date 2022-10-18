@@ -62,6 +62,11 @@ $(() => {
 		})
 	})
 
+	$('div.Selectors svg').on('click', () => {
+		$('select.Theme').trigger('change')
+		$('select.Example').trigger('change')
+	})
+
 })
 
 function LoadExample (name) {

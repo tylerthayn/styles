@@ -1,0 +1,27 @@
+@use "sass:color";
+@use "sass:math";
+
+@function IsLight($color) {
+	$red: color.red($color);
+	$green: color.green($color);
+	$blue: color.blue($color);
+	$hsp: math.sqrt(0.299 * ($red * $red) + 0.587 * ($green * $green) + 0.114 * ($blue * $blue));
+	@if $hsp > 127 {
+		@return 1;
+	} @else {
+		@return 0;
+	}
+}
+
+@function IsLight($color) {
+	$red: color.red($color);
+	$green: color.green($color);
+	$blue: color.blue($color);
+	$hsp: math.sqrt(0.299 * ($red * $red) + 0.587 * ($green * $green) + 0.114 * ($blue * $blue));
+	@if $hsp > 127 {
+		@return 0;
+	} @else {
+		@return 1;
+	}
+}
+

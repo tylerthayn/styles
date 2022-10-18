@@ -104,4 +104,7 @@ dist
 .tern-port
 
 bootstrap/
+font-awesome/
+material-icons/
+
 

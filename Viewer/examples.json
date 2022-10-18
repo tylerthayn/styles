@@ -3,6 +3,13 @@
         "D:\\TTS\\development\\styles\\Viewer\\examples\\theme-preview\\index.html",
         "D:\\TTS\\development\\styles\\Viewer\\examples\\theme-preview\\style.css"
     ],
+    "web-app": [
+        "D:\\TTS\\development\\styles\\Viewer\\examples\\web-app\\index.html",
+        "D:\\TTS\\development\\styles\\Viewer\\examples\\web-app\\style.css"
+    ],
+    "web-site": [
+        "D:\\TTS\\development\\styles\\Viewer\\examples\\web-site\\index.html"
+    ],
     "album": [
         "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\album\\index.html"
     ],

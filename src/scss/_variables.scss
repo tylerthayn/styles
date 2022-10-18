@@ -1,0 +1,88 @@
+@use "sass:color";
+
+/// Colors ///
+$body-bg: #d9e5f2ff !default;
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #eee;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #999;
+$gray-600: #777;
+$gray-700: #495057;
+$gray-800: #333;
+$gray-900: #2d2d2d;
+$black: #000;
+$blue: #336699;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #CD0200;
+$orange: #fd7e14;
+$yellow: #D47500;
+$green: #3CB521;
+$teal: #20c997;
+$cyan: #3399F3;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+
+$body-color: $gray-600;
+$headings-color: $gray-900;
+$navbar-dark-color: #003c6b;
+$navbar-dark-hover-color: $white;
+
+$primary: $blue;
+$secondary: #999999;
+$light: #6693ca;
+$dark: #003c6b;
+
+$primary-text: $white;
+$secondary-text: $black;
+$light-text: $dark;
+$dark-text: $light;
+
+$primary-text-hover: $red;
+$secondary-text-hover: $red;
+$light-text-hover: $red;
+$dark-text-hover: $red;
+
+$background-colors: (
+	"primary": $primary,
+	"secondary": $secondary,
+	"dark": $dark,
+	"light": $light,
+	"black": $black,
+	"white": $white,
+	"red": $red,
+	"yellow": $yellow,
+	"green": $green,
+	"purple": $purple
+);
+
+$hover-colors: (
+	"black": $black,
+	"white": $white,
+	"red": $red,
+	"yellow": $yellow,
+	"green": $green,
+	"purple": $purple
+);
+
+$themes: (
+	"primary": ("bg": $primary, "fg": $white, "hover": $red, "disabled": darken($white, 25%)),
+	"secondary": ("bg": $secondary, "fg": $black, "hover": $red, "disabled": lighten($black, 25%)),
+	"dark": ("bg": $dark, "fg": $light, "hover": $red, "disabled": darken($light, 25%)),
+	"light": ("bg": $light, "fg": $dark, "hover": $red, "disabled": lighten($dark, 25%))
+);
+
+
+$widths: ("percentStep": 5, "min": 0, "max": 1000, "step": 25);
+$heights: ("percentStep": 5, "min": 0, "max": 1000, "step": 25);
+
+$paddings: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50];
+$margins: $paddings;
+
+
+$prefix: tts-;

@@ -5,3 +5,10 @@ div.Selectors {
 	justify-content: center;
 	background-color: #336699;
 }
+
+div.Selectors svg {
+	fill: white;
+	padding-top: 3px;
+	padding-left: 3px;
+}
+div.Selectors svg:hover {fill: red;}

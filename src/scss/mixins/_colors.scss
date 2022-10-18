@@ -1,0 +1,22 @@
+@use "sass:color";
+@use "sass:map";
+
+@use "../variables" as *;
+
+@mixin Backgrounds {
+	@each $name in map.keys($background-colors) {
+		.bg-#{name} {
+			background-image: linear-gradient(lighten(map.get($background-colors, $name), 15%), map.get($background-colors, $name) 50%, darken(map.get($background-colors, $name), 4%));
+		    background-repeat: no-repeat;
+		    filter: none;
+		    border: 1px solid darken(map.get($background-colors, $name), 10%);
+		}
+	}
+}
+
+
+@mixin Hover {
+	@each $color in map.keys($hover-colors) {
+		.hover-#{$color} {color: map.get($hover-colors, $color)}
+	}
+}

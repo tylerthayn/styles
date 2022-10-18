@@ -22314,33 +22314,6 @@ a {
   border-color: #e7ffff !important;
 }
 
-:root {
-  --theme-primary-bg-lighter: #4785c2;
-  --theme-primary-bg: #336699;
-  --theme-primary-bg-darker: #2a547e;
-  --theme-primary-fg: #fff;
-  --theme-primary-fg-disabled: #bfbfbf;
-  --theme-primary-fg-hover: #CD0200;
-  --theme-secondary-bg-lighter: #b8b8b8;
-  --theme-secondary-bg: #999999;
-  --theme-secondary-bg-darker: #878787;
-  --theme-secondary-fg: #000;
-  --theme-secondary-fg-disabled: #404040;
-  --theme-secondary-fg-hover: #CD0200;
-  --theme-dark-bg-lighter: #005ea8;
-  --theme-dark-bg: #003c6b;
-  --theme-dark-bg-darker: #002847;
-  --theme-dark-fg: #6693ca;
-  --theme-dark-fg-disabled: #2d5483;
-  --theme-dark-fg-hover: #CD0200;
-  --theme-light-bg-lighter: #93b3da;
-  --theme-light-bg: #6693ca;
-  --theme-light-bg-darker: #4b80c1;
-  --theme-light-fg: #003c6b;
-  --theme-light-fg-disabled: #0083eb;
-  --theme-light-fg-hover: #CD0200;
-}
-
 .nav {
   padding: 10px;
 }

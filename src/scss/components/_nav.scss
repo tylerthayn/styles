@@ -1,0 +1,32 @@
+@use "sass:map";
+@use "../variables" as *;
+
+@import "../Themes/Bg";
+
+.nav {
+	padding: 10px;
+}
+
+.nav .link {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+@each $name in map.keys($themes) {
+	.theme-#{$name} .nav {
+		@include Bg($name);
+	}
+
+	.theme-#{$name} .nav .link {
+		color: var(--theme-#{$name}-fg);
+	}
+
+	.theme-#{$name} .nav .link:hover {
+		color: var(--theme-#{$name}-fg-hover);
+	}
+
+	.theme-#{$name} .nav .link.disabled {
+		color: var(--theme-#{$name}-fg-disabled);
+	}
+
+}

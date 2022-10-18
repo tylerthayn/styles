@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "../functions/BuildList" as *;
+@use "Expander" as *;
+
+@mixin Margins {
+	@include Expander('m', '', 'margin', $margins);
+	@include Expander('mt', '', 'margin-top', $margins);
+	@include Expander('mb', '', 'margin-bottom', $margins);
+	@include Expander('ml', '', 'margin-left', $margins);
+	@include Expander('mr', '', 'margin-right', $margins);
+}

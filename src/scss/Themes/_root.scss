@@ -1,0 +1,15 @@
+@use "sass:color";
+@use "sass:map";
+@use "../variables" as *;
+
+:root {
+	@each $name in map.keys($themes) {
+		--theme-#{$name}-bg-lighter: #{lighten(map.get(map.get($themes, $name), 'bg'), 12%)};
+		--theme-#{$name}-bg: #{map.get(map.get($themes, $name), 'bg')};
+		--theme-#{$name}-bg-darker: #{darken(map.get(map.get($themes, $name), 'bg'), 7%)};
+		--theme-#{$name}-fg: #{map.get(map.get($themes, $name), 'fg')};
+		--theme-#{$name}-fg-disabled: #{map.get(map.get($themes, $name), 'disabled')};
+		--theme-#{$name}-fg-hover: #{map.get(map.get($themes, $name), 'hover')};
+	}
+}
+

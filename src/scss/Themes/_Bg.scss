@@ -1,0 +1,7 @@
+@use "sass:color";
+
+@mixin Bg($name) {
+	background-image: linear-gradient(var(--theme-#{$name}-bg-lighter), var(--theme-#{$name}-bg) 50%, var(--theme-#{$name}-bg-darker));
+    background-repeat: no-repeat;
+    filter: none;
+}
