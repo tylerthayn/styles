@@ -1,0 +1,90 @@
+.container {
+  display: flex;
+}
+.container.column {
+  flex-direction: column;
+}
+.container.row {
+  flex-direction: row;
+}
+.container > * {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.container > :nth-child(2) {
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.container .header {
+  background-color: var(--l0-header-bg);
+  background-image: var(--l0-header-bgimage);
+  margin: var(--l0-header-margin);
+  padding: var(--l0-header-padding);
+  border: var(--l0-header-border);
+  color: var(--l0-header-color);
+}
+.container .footer {
+  background-color: var(--l0-footer-bg);
+  background-image: var(--l0-footer-bgimage);
+  margin: var(--l0-footer-margin);
+  padding: var(--l0-footer-padding);
+  border: var(--l0-footer-border);
+  color: var(--l0-footer-color);
+}
+.container .content {
+  background-color: var(--l0-content-bg);
+  background-image: var(--l0-content-bgimage);
+  margin: var(--l0-content-margin);
+  padding: var(--l0-content-padding);
+  border: var(--l0-content-border);
+  color: var(--l0-content-color);
+}
+.container .container .header {
+  background-color: var(--l1-header-bg);
+  background-image: var(--l1-header-bgimage);
+  margin: var(--l1-header-margin);
+  padding: var(--l1-header-padding);
+  border: var(--l1-header-border);
+  color: var(--l1-header-color);
+}
+.container .container .footer {
+  background-color: var(--l1-footer-bg);
+  background-image: var(--l1-footer-bgimage);
+  margin: var(--l1-footer-margin);
+  padding: var(--l1-footer-padding);
+  border: var(--l1-footer-border);
+  color: var(--l1-footer-color);
+}
+.container .container .content {
+  background-color: var(--l1-content-bg);
+  background-image: var(--l1-content-bgimage);
+  margin: var(--l1-content-margin);
+  padding: var(--l1-content-padding);
+  border: var(--l1-content-border);
+  color: var(--l1-content-color);
+}
+.container .container .container .header {
+  background-color: var(--l2-header-bg);
+  background-image: var(--l2-header-bgimage);
+  margin: var(--l2-header-margin);
+  padding: var(--l2-header-padding);
+  border: var(--l2-header-border);
+  color: var(--l2-header-color);
+}
+.container .container .container .footer {
+  background-color: var(--l2-footer-bg);
+  background-image: var(--l2-footer-bgimage);
+  margin: var(--l2-footer-margin);
+  padding: var(--l2-footer-padding);
+  border: var(--l2-footer-border);
+  color: var(--l2-footer-color);
+}
+.container .container .container .content {
+  background-color: var(--l2-content-bg);
+  background-image: var(--l2-content-bgimage);
+  margin: var(--l2-content-margin);
+  padding: var(--l2-content-padding);
+  border: var(--l2-content-border);
+  color: var(--l2-content-color);
+}

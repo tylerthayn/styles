@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "../variables" as *;
+@use "../variables/containers" as *;
+
+@mixin ContainerSection($level, $name) {
+	$section: map.merge(map.get(map.get($containers, 'default'), $name), map.get(nth(map.get($containers, 'levels'), $level+1), $name));
+	@each $key in map.keys($section) {
+		#{$key}: #{map.get($section, $key)};
+	}
+}
+
+@mixin NestedContainer($level, $depth) {
+	.container {
+		@each $section in map.keys(nth(map.get($containers, 'levels'), $level+1)) {
+			@if $section == 'self' {
+				@include ContainerSection($level, $section);
+			} @else {
+				.#{$section} {
+					@include ContainerSection($level, $section);
+				}
+			}
+		}
+
+		@if $level < $depth {
+			@include NestedContainer($level+1, $depth)
+		}
+	}
+}
+
+@mixin Container($level:0, $depth:0) {
+	.container {
+		display: flex;
+
+		&.column {flex-direction: column;}
+		&.row {flex-direction: row;}
+		& > * {flex-grow: 0; flex-shrink: 0;}
+		& > :nth-child(2) {flex-grow: 1;flex-shrink: 1;}
+
+	}
+
+
+	@include NestedContainer($level, $depth)
+}
+
+@include Container(0, length(map.get($containers, 'levels'))-1);

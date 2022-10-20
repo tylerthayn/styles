@@ -1,0 +1,156 @@
+
+<div class="container Example w100p h100p flex row center content-center items-center">
+	<button class="btn btn-primary OpenDialog">Open Dialog</button>
+</div>
+
+<!-- Dialog/Example -->
+<div class="Ui dialog Example" style="display:none;">
+	<div class="dialog">
+		<div class="header nav">
+			<div class="HeaderText">Basic Dialog</div>
+			<i class="material-icons Close">close</i>
+		</div>
+		<div class="content">
+			<div class="card" style="border:2px solid black !important;">
+				<div class="content">
+					<h5 class="card-title">Special title treatment</h5>
+					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Dialog/Example -->
+
+<script>
+function CloseDialog () {
+	$('.dialog').fadeOut()
+}
+
+$(() => {
+	$('button.OpenDialog').on('click', () => {
+		if (!$('.dialog').is('.modal')) {
+			$('.dialog').draggable()
+		}
+		$('.dialog').fadeIn(() => {
+			if (!$('.dialog').is('.modal')) {
+				$('.dialog').css('left', ((innerWidth - $('.dialog').width())/2 - $('.dialog').offset().left)+'px')
+				$('.dialog').css('top', ((innerHeight - $('.dialog').height())/2 - $('.dialog').offset().top)+'px')
+			}	
+		})
+		$('.dialog').one('click', CloseDialog)
+	})
+
+	$('.dialog .Close').on('click', CloseDialog)
+	$('.dialog .card').on('click', (event) => {event.preventDefault(); return false})
+
+})
+</script>
+
+<style>
+:root {
+	--theme-dark-fg: white;
+}
+
+.Dialog {
+	
+}
+
+.Dialog.modal {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background-color: #000000aa;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*
+.Dialog > .card {
+	box-shadow: 8px 10px #336699;
+}
+
+.Dialog.modal > .card {
+	box-shadow: 8px 10px #efefef88;
+}
+
+body, .WebApp {
+	overflow: hidden;
+}
+
+.nav {
+	min-height: 30px;
+}
+.nav .link {
+	color: white;
+}
+
+.breadcrumb-item {
+	color: black;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    color: black;
+}
+
+.breadcrumb {
+	border-radius: 0px;
+}
+.theme-primary .breadcrumb {
+	background-color: #336699aa;
+}
+.theme-secondary .breadcrumb {
+	background-color: #999999aa;
+}
+.theme-dark .breadcrumb {
+	background-color: #003c6baa;
+}
+
+.theme-light .breadcrumb {
+	background-color: #6693caaa;
+}
+
+.card {
+	margin: 20px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+	border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+	min-width:80%;
+	min-height:400px;
+}
+
+.card-header {
+    border-top-right-radius: 8px !important;
+    border-top-left-radius: 8px !important;
+    font-size: 2em;
+    color: white;
+    font-weight: bolder;
+    padding: 5px;
+    padding-left: 20px;
+}
+
+.card-header i {
+    align-self: flex-end;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 30px;
+}
+.card-header i:hover {
+	color: red;
+}
+
+
+.card-body {
+	padding: 5px;
+}
+
+.container.Example {
+	max-width: unset;
+}
+*/
+</style>

@@ -1,4 +1,8 @@
 {
+    "dialog": [
+        "D:\\TTS\\development\\styles\\Viewer\\examples\\dialog\\index.html",
+        "D:\\TTS\\development\\styles\\Viewer\\examples\\dialog\\style.css"
+    ],
     "theme-preview": [
         "D:\\TTS\\development\\styles\\Viewer\\examples\\theme-preview\\index.html",
         "D:\\TTS\\development\\styles\\Viewer\\examples\\theme-preview\\style.css"

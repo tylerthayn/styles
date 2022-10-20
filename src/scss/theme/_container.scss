@@ -1,0 +1,52 @@
+@use "sass:map";
+@use "../variables" as *;
+
+@mixin Nesting($theme, $depth) {
+	.container {
+		> .header, > .footer {
+			background-color: nth(map.get($theme, 'colors'), $depth);
+			@if map.get($theme, 'name') == 'light' {
+				background-image: linear-gradient(darken(nth(map.get($theme, 'colors'), $depth), 15%), nth(map.get($theme, 'colors'), $depth) 50%, lighten(nth(map.get($theme, 'colors'), $depth), 4%));
+			} @else {
+				background-image: linear-gradient(lighten(nth(map.get($theme, 'colors'), $depth), 15%), nth(map.get($theme, 'colors'), $depth) 50%, darken(nth(map.get($theme, 'colors'), $depth), 4%));
+			}
+		}
+
+		@if $depth < 3 {
+			@include Nesting($theme, $depth+1);
+		}
+	}
+}
+
+@each $name in map.keys($themes) {
+	.theme-#{$name} .app, .app.theme-#{$name} {
+		background-color: map.get(map.get($themes, $name), 'bg');
+
+		> .header, .footer {
+			$bg-color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'bg'), 1);
+			background-color: #{$bg-color};
+			background-image: linear-gradient(lighten(#{$bg-color}, #{$bg-color}, 1) 50%, darken(#{$bg-color}, 4%));
+			color: nth(map.get(map.get(map.get($theme, $name), 'headers'), 'fg'), 1);
+		}
+	}
+
+	.theme-#{$name} {
+		.container {
+			> .header, .footer {
+				$bg-color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'bg'), 2);
+				background-color: #{$bg-color};
+				background-image: linear-gradient(lighten(#{$bg-color}, #{$bg-color}, 1) 50%, darken(#{$bg-color}, 4%));
+				color: nth(map.get(map.get(map.get($theme, $name), 'headers'), 'fg'), 2);
+			}
+
+			.container {
+				> .header, .footer {
+					$bg-color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'bg'), 3);
+					background-color: #{$bg-color};
+					background-image: linear-gradient(lighten(#{$bg-color}, #{$bg-color}, 1) 50%, darken(#{$bg-color}, 4%));
+					color: nth(map.get(map.get(map.get($theme, $name), 'headers'), 'fg'), 3);
+				}
+			}
+		}
+	}
+}

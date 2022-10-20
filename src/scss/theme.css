@@ -1,0 +1,32 @@
+:root {
+	--tts-l0-header-bg: #003c6b;
+	--tts-l0-header-bgimage: linear-gradient(#0067b8, #003c6b 50%, #002e52);
+	--tts-l0-header-margin: 0px;
+	--tts-l0-header-padding: 0px;
+	--tts-l0-header-color: #ffffff;
+	--tts-l0-footer-bg: #003c6b;
+	--tts-l0-footer-bgimage: linear-gradient(#0067b8, #003c6b 50%, #002e52);
+	--tts-l0-footer-margin: 0px;
+	--tts-l0-footer-padding: 0px;
+	--tts-l0-footer-color: #ffffff;
+	--tts-l1-header-bg: #336699;
+	--tts-l1-header-bgimage: linear-gradient(#538cc6, #336699 50%, #2d5986);
+	--tts-l1-header-margin: 0px;
+	--tts-l1-header-padding: 0px;
+	--tts-l1-header-color: #ffffff;
+	--tts-l1-footer-bg: #336699;
+	--tts-l1-footer-bgimage: linear-gradient(#538cc6, #336699 50%, #2d5986);
+	--tts-l1-footer-margin: 0px;
+	--tts-l1-footer-padding: 0px;
+	--tts-l1-footer-color: #ffffff;
+	--tts-l2-header-bg: #6693ca;
+	--tts-l2-header-bgimage: linear-gradient(#9fbbde, #6693ca 50%, #5386c3);
+	--tts-l2-header-margin: 0px;
+	--tts-l2-header-padding: 0px;
+	--tts-l2-header-color: #ffffff;
+	--tts-l2-footer-bg: #6693ca;
+	--tts-l2-footer-bgimage: linear-gradient(#9fbbde, #6693ca 50%, #5386c3);
+	--tts-l2-footer-margin: 0px;
+	--tts-l2-footer-padding: 0px;
+	--tts-l2-footer-color: #ffffff;
+}

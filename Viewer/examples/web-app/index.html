@@ -1,4 +1,75 @@
-	<div class="nav bg-dark flex">
+<style>
+:root {
+	--theme-dark-fg: white;
+}
+body, .WebApp {
+	overflow: hidden;
+}
+
+.WebApp .Main {
+	overflow-y: scroll;
+	overflow: auto;
+}
+
+.nav {
+	min-height: 30px;
+}
+.nav .link {
+	color: white;
+}
+
+.breadcrumb-item {
+	color: black;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+    color: black;
+}
+
+.breadcrumb {
+	border-radius: 0px;
+}
+.theme-primary .breadcrumb {
+	background-color: #336699aa;
+}
+.theme-secondary .breadcrumb {
+	background-color: #999999aa;
+}
+.theme-dark .breadcrumb {
+	background-color: #003c6baa;
+}
+
+.theme-light .breadcrumb {
+	background-color: #6693caaa;
+}
+
+.card {
+	margin: 20px;
+	box-shadow: 8px 10px #33669988;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+	border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.card-header {
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+	border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.card-header .nav-tabs {
+	padding-bottom: 0px;
+    border-top-right-radius: 8px !important;
+    border-top-left-radius: 8px !important;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+</style>
+<div class="WebApp w100p h100p flex column">
+	<div class="nav flex fixed">
 		<i class="link fa fas fa-home fa-2x"></i>
 		<i class="link fa fas fa-arrow-circle-left fa-2x"></i>
 		<i class="link fa fas fa-arrow-circle-right fa-2x"></i>
@@ -7,7 +78,7 @@
 		<span class="expand"></span>
 		<i class="link fa fas fa-ellipsis-v fa-2x"></i>
 	</div>
-	<div class="Main">
+	<div class="Main expand">
 
 <nav aria-label="breadcrumb" class="">
 	<ol class="breadcrumb">
@@ -37,7 +108,7 @@
 	</div>
 </div>
 
-<div class="card" style="margin: 20px;display:none;">
+<div class="card">
 	<div class="card-header bg-primary">Basic Card</div>
 	<div class="card-body">
 		<div class="row">
@@ -84,7 +155,7 @@
   </ul>
 </nav>
 
-	<div class="nav navbar Footer">
+	<div class="nav navbar Footer fixed">
 		
 	</div>
-
+</div>

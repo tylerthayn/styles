@@ -1,0 +1,39 @@
+@mixin Section($level, $key) {
+	background-color: var(--l#{$level}-#{$key}-bg);
+	background-image: var(--l#{$level}-#{$key}-bgimage);
+	margin: var(--l#{$level}-#{$key}-margin);
+	padding: var(--l#{$level}-#{$key}-padding);
+	border: var(--l#{$level}-#{$key}-border);
+	color: var(--l#{$level}-#{$key}-color);
+}
+
+@mixin NestedPanels($level, $depth) {
+	.panel {
+		.header {
+			@include Section($level, 'header');
+		}
+		.footer {
+			@include Section($level, 'footer');
+		}
+		.content {
+			@include Section($level, 'content');
+		}
+
+		@if $level < $depth {
+			@include NestedPanels($level+1, $depth)
+		}
+	}
+}
+
+@mixin Panel($level:0, $depth:0) {
+	.panel {
+		display: flex;
+
+		&.column {flex-direction: column;}
+		&.row {flex-direction: row;}
+		& > * {flex-grow: 0; flex-shrink: 0;}
+		& > :nth-child(2) {flex-grow: 1;flex-shrink: 1;}
+	}
+
+	@include NestedPanels($level, $depth)
+}

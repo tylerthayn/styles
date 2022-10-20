@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Styles Viewer</title>
+		<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../themes/tts/tts.css">
+		<link rel="stylesheet" href="styles.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+		<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="../node_modules/yamljs/dist/yaml.js"></script>
+		<script src="../node_modules/lodash/lodash.js"></script>
+		<script src="../node_modules/@tyler.thayn/js.core/index.js"></script>
+		<script src="D:/NodeJs/node_modules/chroma-js/chroma.js"></script>
+<script>
+function ColorDiv (color) {
+	let d = $('<div>')
+	d.addClass('Color')
+	d.attr('title', color)
+	d.width(200)
+	d.height(25)
+	d.css('background-color', color)
+	d.on('click', () => {
+		$('.Value').val(color)
+	})
+	return d
+}
+
+function DisplayColors (column, colors) {
+	let $col = $($('.Colors').children()[column])
+	$col.empty()
+	colors.forEach(color => {
+		$col.append(ColorDiv(color))
+	})
+}
+
+function ChromaPalette (color, n = 4) {
+	return chroma.scale([chroma(color).darken(), chroma(color).brighten()]).colors(n)
+}
+
+function ColorPalette (color) {
+	return [
+		chroma(color).darken().hex(), 
+		color,
+		//chroma(color).darken().brighten().hex(),
+		chroma(color).brighten().hex(),
+		chroma(color).brighten().brighten().hex()
+	]
+}
+
+</script>
+
+	</head>
+	<body class="w100p h100p flex column justify-center center align-center items-center">
+		<input type="text" class="Value"></input>
+		<div class="w100p expand Colors flex row justify-center center align-center items-start">
+			<div class="Col Col1 flex column"></div>
+			<div class="Col Col2 flex column"></div>
+			<div class="Col Col3 flex column"></div>
+			<div class="Col Col4 flex column"></div>
+		</div>
+	</body>
+</html>

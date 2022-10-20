@@ -1,0 +1,23 @@
+.header {
+  width: 100%;
+  min-height: 25px;
+  margin: 0px;
+  padding: 5px;
+}
+
+.container > .header {
+  background-color: var(--tts-l0-header-bg);
+  background-image: var(--tts-l0-header-bgimage);
+  background-repeat: no-repeat;
+  filter: none;
+}
+
+.container .container > .header {
+  background-color: var(--tts-l1-header-bg);
+  background-image: var(--tts-l1-header-bgimage);
+}
+
+.container .container .container > .header {
+  background-color: var(--tts-l2-header-bg);
+  background-image: var(--tts-l2-header-bgimage);
+}

@@ -1,9 +1,9 @@
 let examples = {}
 $(() => {
-	$.get('themes.json', themes => {
-		Object.keys(themes).forEach(theme => {
-			let option = $(`<option value="${themes[theme]}">${theme}</option>`)
-			$('select.Theme').append(option)
+	$.get('schemes.json', schemes => {
+		Object.keys(schemes).forEach(scheme => {
+			let option = $(`<option value="${schemes[scheme]}">${scheme}</option>`)
+			$('select.Scheme').append(option)
 		})
 	})
 	$.get('examples.json', _examples => {
@@ -16,14 +16,20 @@ $(() => {
 
 	$('a').on('click', (event) => {event.preventDefault()})
 
+	$('select.Scheme').on('change', () => {
+		if ($('head link.Scheme').length > 0) {
+			$('head link.Scheme').prop('disabled', true)
+			$('head link.Scheme').remove()
+		}
+		if ($('select.Scheme').val() != 'bootstrap') {
+			$('head').append($(`<link rel="stylesheet" href="${$('select.Scheme').val()}" class="Scheme">`))
+		}
+	})
+
 	$('select.Theme').on('change', () => {
-		if ($('head link.Theme').length > 0) {
-			$('head link.Theme').prop('disabled', true)
-			$('head link.Theme').remove()
-		}
-		if ($('select.Theme').val() != 'bootstrap') {
-			$('head').append($(`<link rel="stylesheet" href="${$('select.Theme').val()}" class="Theme">`))
-		}
+		$('.Viewer').SetTheme($('select.Theme').val())
+		//$('.Viewer').removeClass('theme-primary theme-secondary theme-dark theme-light')
+		//$('.Viewer').addClass(`theme-${$('select.Theme').val()}`)
 	})
 
 	$('select.Example').on('change', () => {
@@ -63,15 +69,8 @@ $(() => {
 	})
 
 	$('div.Selectors svg').on('click', () => {
-		$('select.Theme').trigger('change')
+		$('select.Scheme').trigger('change')
 		$('select.Example').trigger('change')
 	})
 
 })
-
-function LoadExample (name) {
-	$.get(`../examples/${name}.html`, html => {
-		$('.Main').empty()
-		$('.Main').append($(html))
-	})
-}

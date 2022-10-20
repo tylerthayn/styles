@@ -1,0 +1,63 @@
+@use "../variables" as *;
+
+$containers: (
+	"default": (
+		"self": (
+			"margin": 0px,
+			"padding": 0px,
+			"max-width": 90%
+		),
+		"content": (),
+		"header": (
+			"min-height": 25px,
+			"background-repeat": no-repeat,
+			"filter": none
+		),
+		"footer": (
+			"min-height": 15px,
+			"background-repeat": no-repeat,
+			"filter": none
+		)
+	),
+	"levels": [
+		(
+			"self": (
+				"max-width": 100%
+			),
+			"content": (),
+			"header": (
+				"background-color": var(--#{$var-prefix}l0-header-bg),
+				"background-image": var(--#{$var-prefix}l0-header-bgimage)
+			),
+			"footer": (
+				"background-color": var(--#{$var-prefix}l0-footer-bg),
+				"background-image": var(--#{$var-prefix}l0-footer-bg)
+			)
+		),
+		(
+			"self": (),
+			"content": (),
+			"header": (
+				"background-color": var(--#{$var-prefix}l1-header-bg),
+				"background-image": var(--#{$var-prefix}l1-header-bgimage)
+			),
+			"footer": (
+				"background-color": var(--#{$var-prefix}l1-footer-bg),
+				"background-image": var(--#{$var-prefix}l1-footer-bgimage)
+			)
+		),
+		(
+			"self": (),
+			"content": (),
+			"header": (
+				"background-color": var(--#{$var-prefix}l2-header-bg),
+				"background-image": var(--#{$var-prefix}l2-header-bgimage)
+			),
+			"footer": (
+				"background-color": var(--#{$var-prefix}l2-footer-bg),
+				"background-image": var(--#{$var-prefix}l2-footer-bgimage)
+			)
+		)
+	]
+);
+

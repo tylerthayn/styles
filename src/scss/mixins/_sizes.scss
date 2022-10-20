@@ -1,30 +1,22 @@
 @use "sass:map";
 @use "../functions/BuildList" as *;
 @use "Expander" as *;
-@use "../variables" as *;
+@use "../variables/sizes" as *;
 
-@mixin Heights {
-	@include Expander('h', 'p', 'height', BuildList(0, 100, map.get($heights, "percentStep")), 1%);
-	@include Expander('h', '', 'height', BuildList(map.get($heights, "min"), map.get($heights, "max"), map.get($heights, "step")), 1px);
-}
+@include Expander('h', 'p', 'height', BuildList(0, 100, map.get($heights, "percentStep")), 1%);
+@include Expander('h', '', 'height', BuildList(map.get($heights, "min"), map.get($heights, "max"), map.get($heights, "step")), 1px);
 
-@mixin Margins {
-	@include Expander('m', '', 'margin', $margins);
-	@include Expander('mt', '', 'margin-top', $margins);
-	@include Expander('mb', '', 'margin-bottom', $margins);
-	@include Expander('ml', '', 'margin-left', $margins);
-	@include Expander('mr', '', 'margin-right', $margins);
-}
+@include Expander('m', '', 'margin', $margins);
+@include Expander('mt', '', 'margin-top', $margins);
+@include Expander('mb', '', 'margin-bottom', $margins);
+@include Expander('ml', '', 'margin-left', $margins);
+@include Expander('mr', '', 'margin-right', $margins);
 
-@mixin Paddings {
-	@include Expander('p', '', 'padding', $paddings);
-	@include Expander('pt', '', 'padding-top', $paddings);
-	@include Expander('pb', '', 'padding-bottom', $paddings);
-	@include Expander('pl', '', 'padding-left', $paddings);
-	@include Expander('pr', '', 'padding-right', $paddings);
-}
+@include Expander('p', '', 'padding', $paddings);
+@include Expander('pt', '', 'padding-top', $paddings);
+@include Expander('pb', '', 'padding-bottom', $paddings);
+@include Expander('pl', '', 'padding-left', $paddings);
+@include Expander('pr', '', 'padding-right', $paddings);
 
-@mixin Widths {
-	@include Expander('w', 'p', 'width', BuildList(0, 100, map.get($widths, "percentStep")), 1%);
-	@include Expander('w', '', 'width', BuildList(map.get($widths, "min"), map.get($widths, "max"), map.get($widths, "step")), 1px);
-}
+@include Expander('w', 'p', 'width', BuildList(0, 100, map.get($widths, "percentStep")), 1%);
+@include Expander('w', '', 'width', BuildList(map.get($widths, "min"), map.get($widths, "max"), map.get($widths, "step")), 1px);

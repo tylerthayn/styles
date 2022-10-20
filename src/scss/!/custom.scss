@@ -1,0 +1,41 @@
+@use "../css/font-awesome.css";
+@use "../css/material-icons.css";
+@use "../css/w3.css";
+@use "functions/Colors";
+@use "mixins/colors" as *;
+@use "mixins/flex" as *;
+@use "mixins/sizes" as *;
+@use "themes/root";
+///@use "themes" as Themes;
+///@use "mixins" as *;
+@use "components/nav";
+
+@mixin IsColorLight($color) {
+	@if Colors.IsLight($color) == 1 {
+		@debug #{$color} yes;
+	} @else {
+		@debug #{$color} no;
+	}
+}
+
+///@include IsColorLight(#ffffff);
+///@include IsColorLight(#000000);
+///@include IsColorLight(#666666);
+///@include IsColorLight(#999999);
+///@include IsColorLight(#CCCCCC);
+///@include IsColorLight(#DDDDDD);
+
+/// Colors
+@include Backgrounds;
+@include Hover;
+
+@include Flex;
+@include Widths;
+@include Heights;
+@include Margins;
+@include Paddings;
+
+
+
+
+

@@ -1,0 +1,29 @@
+@use "sass:map";
+@use "../variables" as *;
+
+.navbar {
+	display: flex;
+	flex-direction: row;
+
+	&.col {
+		flex-direction: column;
+	}
+
+	.spacer {
+		flex-shrink: 1;
+		flex-grow: 1;
+	}
+
+	.link {
+		margin: 5px;
+		flex-shrink: 0;
+		flex-grow: 0;
+
+		&:hover {
+			color: red;
+		}
+		&.disabled {
+			color: #6c6c6c;
+		}
+	}
+}
