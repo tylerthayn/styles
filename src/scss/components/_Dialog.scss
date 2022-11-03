@@ -1,0 +1,21 @@
+@use "sass:map";
+@use "Container";
+
+.Dialog {
+	@extend .Container;
+
+	width: 100%;
+	height: 100%;
+	padding: 10%;
+	background-color: transparent;
+
+	&.Modal {
+		background-color: #ffffffaa;
+	}
+
+	.Content {
+		background-color: #ffffff;
+	}
+
+}
+

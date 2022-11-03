@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "../functions/BuildList" as *;
+@use "../mixins/Expander" as *;
+@use "../variables/sizes" as *;
+
+/**<Margin>**/
+@include Expander('M', '', 'margin', $margins);
+@include Expander('MT', '', 'margin-top', $margins);
+@include Expander('MB', '', 'margin-bottom', $margins);
+@include Expander('ML', '', 'margin-left', $margins);
+@include Expander('MR', '', 'margin-right', $margins);

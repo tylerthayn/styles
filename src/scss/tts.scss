@@ -4,9 +4,19 @@
 
 @use "root";
 
-@use "mixins/flex";
-@use "mixins/sizes";
-@use "components/container";
-@use "components/navbar";
+@use "utilities/Flex";
+@use "utilities/Width";
+@use "utilities/Height";
+@use "utilities/Margin";
+@use "utilities/Padding";
+
+@use "utilities/BgColor";
+@use "utilities/Color";
+@use "utilities/Border";
+
+@use "components/Container";
+@use "components/Navbar";
+@use "components/NavTabs";
+///@use "components/navbar";
 ///@use "components/card";
 

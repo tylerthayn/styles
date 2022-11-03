@@ -21,7 +21,11 @@ $(() => {
 			$('head link.Scheme').prop('disabled', true)
 			$('head link.Scheme').remove()
 		}
-		if ($('select.Scheme').val() != 'bootstrap') {
+		if ($('select.Scheme').val() == 'bootstrap') {
+			$('head').append($(`<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css" class="Scheme">`))
+		} else if ($('select.Scheme').val() == 'tts') {
+			$('head').append($(`<link rel="stylesheet" href="../src/scss/tts.css" class="Scheme">`))
+		} else {
 			$('head').append($(`<link rel="stylesheet" href="${$('select.Scheme').val()}" class="Scheme">`))
 		}
 	})

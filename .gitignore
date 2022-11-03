@@ -106,5 +106,6 @@ dist
 bootstrap/
 font-awesome/
 material-icons/
-
-
+!/bootstrap/
+!/font-awesome/
+!/material-icons/

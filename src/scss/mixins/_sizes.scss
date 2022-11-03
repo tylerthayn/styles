@@ -3,20 +3,20 @@
 @use "Expander" as *;
 @use "../variables/sizes" as *;
 
-@include Expander('h', 'p', 'height', BuildList(0, 100, map.get($heights, "percentStep")), 1%);
-@include Expander('h', '', 'height', BuildList(map.get($heights, "min"), map.get($heights, "max"), map.get($heights, "step")), 1px);
+@include Expander('H', 'P', 'height', BuildList(0, 100, map.get($heights, "percentStep")), 1%);
+@include Expander('H', '', 'height', BuildList(map.get($heights, "min"), map.get($heights, "max"), map.get($heights, "step")), 1px);
 
-@include Expander('m', '', 'margin', $margins);
-@include Expander('mt', '', 'margin-top', $margins);
-@include Expander('mb', '', 'margin-bottom', $margins);
-@include Expander('ml', '', 'margin-left', $margins);
-@include Expander('mr', '', 'margin-right', $margins);
+@include Expander('M', '', 'margin', $margins);
+@include Expander('MT', '', 'margin-top', $margins);
+@include Expander('MB', '', 'margin-bottom', $margins);
+@include Expander('ML', '', 'margin-left', $margins);
+@include Expander('MR', '', 'margin-right', $margins);
 
-@include Expander('p', '', 'padding', $paddings);
-@include Expander('pt', '', 'padding-top', $paddings);
-@include Expander('pb', '', 'padding-bottom', $paddings);
-@include Expander('pl', '', 'padding-left', $paddings);
-@include Expander('pr', '', 'padding-right', $paddings);
+@include Expander('P', '', 'padding', $paddings);
+@include Expander('PT', '', 'padding-top', $paddings);
+@include Expander('PB', '', 'padding-bottom', $paddings);
+@include Expander('PL', '', 'padding-left', $paddings);
+@include Expander('PR', '', 'padding-right', $paddings);
 
-@include Expander('w', 'p', 'width', BuildList(0, 100, map.get($widths, "percentStep")), 1%);
-@include Expander('w', '', 'width', BuildList(map.get($widths, "min"), map.get($widths, "max"), map.get($widths, "step")), 1px);
+@include Expander('W', 'P', 'width', BuildList(0, 100, map.get($widths, "percentStep")), 1%);
+@include Expander('W', '', 'width', BuildList(map.get($widths, "min"), map.get($widths, "max"), map.get($widths, "step")), 1px);

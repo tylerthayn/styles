@@ -1,1 +1,0 @@
-sass index.scss tts.css --no-source-map

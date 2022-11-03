@@ -1,0 +1,39 @@
+@use "sass:color";
+@use "sass:map";
+@use "../variables/colors" as *;
+@use "../variables/sizes" as *;
+
+/**<Border>**/
+@each $name in map.keys($colors) {
+	.B-#{$name} {
+		border-color: var(--#{$name});
+	}
+}
+
+@each $size in $borders {
+	.B#{$size} {
+		border-width: #{$size}px;
+	}
+	.BT#{$size} {
+		border-top-width: #{$size}px;
+	}
+	.BB#{$size} {
+		border-bottom-width: #{$size}px;
+	}
+	.BR#{$size} {
+		border-right-width: #{$size}px;
+	}
+	.BL#{$size} {
+		border-left-width: #{$size}px;
+	}
+}
+
+$border-styles: ['dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset', 'none', 'hidden'];
+
+@each $style in $border-styles {
+	.B-#{$style} {
+		border-style: #{$style};
+	}
+}
+
+

@@ -2,18 +2,18 @@
 
 $var-prefix: 'tts-';
 
-$defaultTheme: 'light';
+$defaultTheme: 'Light';
 $themes: (
-	light: (
-		name: 'light',
+	Light: (
+		name: 'Light',
 		bg: #d9e6f2,
 		fg: #000000,
 		headers: (
-			bg: [#003c6b, #336699, #6693ca],
+			bg: [#003c6b, #4d7cb1, #6693ca],
 			fg: [#ffffff, #ffffff, #ffffff]
 		),
 		navbar: (
-			'.links': (
+			'.Links': (
 				'&:hover': (
 					'color': #ff0000
 				),
@@ -26,8 +26,8 @@ $themes: (
 			)
 		)
 	),
-	dark: (
-		name: 'dark',
+	Dark: (
+		name: 'Dark',
 		bg: #003c6b,
 		fg: #ffffff,
 		headers: (
@@ -35,7 +35,7 @@ $themes: (
 			fg: [#000000, #000000, #000000]
 		),
 		navbar: (
-			links: (
+			'.Links': (
 				hover: #ff0000,
 				active: #000000,
 				disabled: #555555

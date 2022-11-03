@@ -1,23 +1,19 @@
-
-<div class="container Example w100p h100p flex row center content-center items-center">
+<!--
+<div class="Flex Center	W100P H100P">
 	<button class="btn btn-primary OpenDialog">Open Dialog</button>
 </div>
-
+-->
 <!-- Dialog/Example -->
-<div class="Ui dialog Example" style="display:none;">
-	<div class="dialog">
-		<div class="header nav">
-			<div class="HeaderText">Basic Dialog</div>
+<div class="DialogBackdrop">
+	<div class="Dialog">
+		<div class="Header Title">
+			Basic Dialog
 			<i class="material-icons Close">close</i>
 		</div>
-		<div class="content">
-			<div class="card" style="border:2px solid black !important;">
-				<div class="content">
-					<h5 class="card-title">Special title treatment</h5>
-					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-					<a href="#" class="btn btn-primary">Go somewhere</a>
-				</div>
-			</div>
+		<div class="Content">
+			<div class="Title">Special title treatment</div>
+			<div class="TextContent">With supporting text below as a natural lead-in to additional content.</div>
+			<a href="#" class="btn btn-primary">Go somewhere</a>
 		</div>
 	</div>
 </div>
@@ -30,6 +26,8 @@ function CloseDialog () {
 
 $(() => {
 	$('button.OpenDialog').on('click', () => {
+		$('.DialogBackdrop').show('fade')
+		/*
 		if (!$('.dialog').is('.modal')) {
 			$('.dialog').draggable()
 		}
@@ -40,6 +38,7 @@ $(() => {
 			}	
 		})
 		$('.dialog').one('click', CloseDialog)
+		*/
 	})
 
 	$('.dialog .Close').on('click', CloseDialog)
@@ -48,6 +47,7 @@ $(() => {
 })
 </script>
 
+<!--
 <style>
 :root {
 	--theme-dark-fg: white;
@@ -154,3 +154,4 @@ body, .WebApp {
 }
 */
 </style>
+-->

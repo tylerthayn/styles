@@ -1,0 +1,8 @@
+@use "sass:map";
+@use "../functions/BuildList" as *;
+@use "../mixins/Expander" as *;
+@use "../variables/sizes" as *;
+
+/**<Width>**/
+@include Expander('W', 'P', 'width', BuildList(0, 100, map.get($widths, "percentStep")), 1%);
+@include Expander('W', '', 'width', BuildList(map.get($widths, "min"), map.get($widths, "max"), map.get($widths, "step")), 1px);

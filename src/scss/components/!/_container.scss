@@ -1,0 +1,258 @@
+@use "sass:map";
+@use "../variables" as *;
+
+$theme: map.get($themes, $defaultTheme);
+
+html, body, .app, .webapp, .App, .WebApp {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+/**<Container>**/
+.App {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	background-color: map.get($theme, 'bg');
+	color: map.get($theme, 'fg');
+
+	> .Header, > .Footer {
+		flex-grow: 0;
+		flex-shrink: 0;
+		width: 100%;
+		min-height: 20px;
+		margin: 0px;
+		padding: 5px;
+		background-repeat: no-repeat;
+		filter: none;
+		background-color: nth(map.get(map.get($theme, 'headers'), 'bg'), 1);
+		color: nth(map.get(map.get($theme, 'headers'), 'fg'), 1);
+	}
+
+	> .Header {
+		background-image: linear-gradient(darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 1), 15%), nth(map.get(map.get($theme, 'headers'), 'bg'), 1) 50%, lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 1), 4%));
+	}
+
+	> .Footer {
+		background-image: linear-gradient(lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 1), 5%), nth(map.get(map.get($theme, 'headers'), 'bg'), 1) 50%, darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 1), 15%));
+	}
+
+	> .Main {
+		height: 100px;
+		flex-grow: 1;
+		flex-shrink: 1;
+		display: flex;
+		flex-direction: column;
+		overflow: auto;
+
+		&.Row {
+			flex-direction: row;
+		}
+	}
+}
+
+.Container {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+	padding: 0px;
+	max-width: #{100% - map.get($containers, 'nested-margins') * 2};
+	max-height: #{100% - map.get($containers, 'nested-margins') * 2};
+	margin: #{map.get($containers, 'nested-margins')};
+	border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%)};
+
+	&.Row {
+		flex-direction: row;
+	}
+
+	> .Header, > .Footer {
+		flex-grow: 0;
+		flex-shrink: 0;
+		width: 100%;
+		min-height: 20px;
+		margin: 0px;
+		padding: 5px;
+		background-repeat: no-repeat;
+		filter: none;
+		background-color: nth(map.get(map.get($theme, 'headers'), 'bg'), 2);
+		color: nth(map.get(map.get($theme, 'headers'), 'fg'), 2);
+		border: 2px solid #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%)};
+	}
+
+	> .Header {
+		border-radius: 5px 5px 0px 0px;
+		border-bottom-width: 0px;
+		background-image: linear-gradient(darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%), nth(map.get(map.get($theme, 'headers'), 'bg'), 2) 50%, lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 5%));
+	}
+	> .Footer {
+		border-radius: 0px 0px 5px 5px;
+		background-image: linear-gradient(lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 5%), nth(map.get(map.get($theme, 'headers'), 'bg'), 2) 50%, darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%));
+		border-top-width: 0px;
+	}
+
+	&.No-Header {
+		> .Content {
+			border-top-width: 2px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+	}
+
+	&.No-Footer {
+		> .Content {
+			border-bottom-width: 2px;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+	}
+
+
+	> .Content {
+		height: auto;
+		flex-grow: 1;
+		flex-shrink: 1;
+		display: flex;
+		flex-direction: column;
+		border-width: 0px 2px 0px 2px;
+		border-style: solid;
+		border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%)};
+
+		&.Row {
+			flex-direction: row;
+		}
+	}
+
+	.Container {
+		border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%)};
+
+		> .Header, > .Footer {
+			background-color: nth(map.get(map.get($theme, 'headers'), 'bg'), 3);
+			color: nth(map.get(map.get($theme, 'headers'), 'fg'), 3);
+			border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%)};
+		}
+		> .Header {
+			background-image: linear-gradient(darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%), nth(map.get(map.get($theme, 'headers'), 'bg'), 3) 50%, lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 5%));
+		}
+		> .Footer {
+			background-image: linear-gradient(lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 5%), nth(map.get(map.get($theme, 'headers'), 'bg'), 3) 50%, darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%));
+		}
+		> .Content {
+			border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%)};
+		}
+	}
+}
+
+
+@each $name in map.keys($themes) {
+	.Theme-#{$name} .App, .App.Theme-#{$name} {
+		$bg-color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'bg'), 1);
+		background-color: map.get(map.get($themes, $name), 'bg');
+		color: map.get(map.get($themes, $name), 'fg');
+
+		> .Header, .Footer {
+			background-color: #{$bg-color};
+			color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'fg'), 1);
+		}
+
+		> .Header {
+			@if $name == 'light' {
+				background-image: linear-gradient(#{lighten($bg-color, 5%)}, #{$bg-color} 50%, #{darken($bg-color, 15%)});
+			} @else {
+				background-image: linear-gradient(#{darken($bg-color, 15%)}, #{$bg-color} 50%, #{lighten($bg-color, 5%)});
+			}
+		}
+
+		> .Footer {
+			@if $name == 'light' {
+				background-image: linear-gradient(#{darken($bg-color, 15%)}, #{$bg-color} 50%, #{lighten($bg-color, 5%)});
+			} @else {
+				background-image: linear-gradient(#{lighten($bg-color, 5%)}, #{$bg-color} 50%, #{darken($bg-color, 15%)});
+			}
+		}
+	}
+
+	.Theme-#{$name} {
+		.Container {
+			$bg-color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'bg'), 2);
+
+			> .Header, .Footer {
+				@if $name == 'light' {
+					border-color: #{lighten($bg-color, 15%)};
+				} @else {
+					border-color: #{darken($bg-color, 15%)};
+				}
+				background-color: #{$bg-color};
+				color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'fg'), 2);
+			}
+
+			> .Header {
+				@if $name == 'light' {
+					background-image: linear-gradient(#{lighten($bg-color, 15%)}, #{$bg-color} 50%, #{darken($bg-color, 5%)});
+				} @else {
+					background-image: linear-gradient(#{darken($bg-color, 15%)}, #{$bg-color} 50%, #{lighten($bg-color, 5%)});
+				}
+			}
+
+			> .Footer {
+				@if $name == 'light' {
+					background-image: linear-gradient(#{darken($bg-color, 5%)}, #{$bg-color} 50%, #{lighten($bg-color, 15%)});
+				} @else {
+					background-image: linear-gradient(#{lighten($bg-color, 5%)}, #{$bg-color} 50%, #{darken($bg-color, 15%)});
+				}
+			}
+
+			> .Content {
+				@if $name == 'light' {
+					border-color: #{lighten($bg-color, 15%)};
+				} @else {
+					border-color: #{darken($bg-color, 15%)};
+				}
+			}
+
+			.Container {
+				$bg-color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'bg'), 3);
+
+				> .Header, .Footer {
+					@if $name == 'light' {
+						border-color: #{lighten($bg-color, 15%)};
+					} @else {
+						border-color: #{darken($bg-color, 15%)};
+					}
+					background-color: #{$bg-color};
+					color: nth(map.get(map.get(map.get($themes, $name), 'headers'), 'fg'), 3);
+				}
+				> .Header {
+					@if $name == 'light' {
+						background-image: linear-gradient(#{lighten($bg-color, 15%)}, #{$bg-color} 50%, #{darken($bg-color, 5%)});
+					} @else {
+						background-image: linear-gradient(#{darken($bg-color, 15%)}, #{$bg-color} 50%, #{lighten($bg-color, 5%)});
+					}
+				}
+
+				> .Footer {
+					@if $name == 'light' {
+						background-image: linear-gradient(#{darken($bg-color, 5%)}, #{$bg-color} 50%, #{lighten($bg-color, 15%)});
+					} @else {
+						background-image: linear-gradient(#{lighten($bg-color, 5%)}, #{$bg-color} 50%, #{darken($bg-color, 15%)});
+					}
+				}
+
+				> .Content {
+					@if $name == 'light' {
+						border-color: #{lighten($bg-color, 15%)};
+					} @else {
+						border-color: #{darken($bg-color, 15%)};
+					}
+				}
+			}
+		}
+	}
+}
+
+.Card, .Dialog {
+	border: 0px;
+	@extend .Container;
+}

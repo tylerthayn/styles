@@ -3,7 +3,7 @@ let examplesFolders = [
 	'Viewer/examples',
 	'bootstrap/site/content/docs/5.2/examples'
 ]
-let themesFolder = 'themes'
+let themesFolder = 'Viewer/themes'
 
 let examples = {}
 examplesFolders.forEach(examplesFolder => {

@@ -1,0 +1,232 @@
+@use "sass:map";
+@use "../variables" as *;
+@use "../variables/sizes" as *;
+
+html, body, .app, .webapp, .App, .WebApp {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+/**<Container>**/
+:root {
+    --grid-margin: #{$grid-margin};
+}
+
+.Container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+	flex-direction: column;
+
+	> .Header {
+	    width: 100%;
+	    min-height: 30px;
+	}
+
+	> .Footer {
+		width: 100%;
+		min-height: 20px;
+	    width: 100%;
+	}
+
+	> .Content {
+		width: 100%;
+		height: auto;
+		flex-grow: 1;
+	}
+
+	&.Horizontal {
+		flex-direction: row;
+
+		> .Header {
+			min-width: 30px;
+			height: 100%;
+		}
+
+		> .Footer {
+			min-width: 30px;
+			height: 100%;
+		}
+
+		> .Content {
+			width: auto;
+			height: 100%;
+		}
+	}
+}
+
+.Content {
+    display: flex;
+    flex-direction: column;
+
+	&.Row {
+	    flex-direction: row;
+	}
+}
+
+.Col,.Row {
+    margin: 0px;
+    display: flex;
+    flex-grow: 1;
+    width: auto;
+    height: auto;
+}
+
+.Row {
+	height: 100%;
+	flex-direction: row;
+}
+
+.Col {
+	width: 100%;
+	flex-direction: column;
+}
+
+.Col > *,.Row > * {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.Row > *, .Col > *, .Content > :not(.Row):not(.Col) {
+    width: auto;
+    height: auto;
+    margin: calc(var(--grid-margin) / 2);
+    flex-grow: 1;
+}
+
+.Content > .Row:first-child, .Content > .Col:first-child {margin-top: calc(var(--grid-margin) / 2);}
+.Content > :not(.Row):not(.Col):first-child {margin-top: var(--grid-margin);}
+.Content.Row > :not(.Row):not(.Col) {margin-top: var(--grid-margin)}
+
+.Content > .Row:last-child, .Content > .Col:last-child {margin-bottom: calc(var(--grid-margin) / 2);}
+.Content > :not(.Row):not(.Col):last-child {margin-bottom: var(--grid-margin);}
+.Content.Row > :not(.Row):not(.Col) {margin-bottom: var(--grid-margin)}
+
+.Content > .Row, .Content > .Col {margin-left: calc(var(--grid-margin) / 2);}
+.Content > :not(.Row):not(.Col) {margin-left: var(--grid-margin);}
+.Content.Row > :not(.Row):not(.Col) {margin-left: calc(var(--grid-margin) / 2)}
+.Content.Row > :not(.Row):not(.Col):first-child {margin-left: var(--grid-margin)}
+
+.Content > .Row, .Content > .Col {margin-right: calc(var(--grid-margin) / 2);}
+.Content > :not(.Row):not(.Col) {margin-right: var(--grid-margin);}
+.Content.Row > :not(.Row):not(.Col) {margin-right: calc(var(--grid-margin) / 2);}
+.Content.Row > :not(.Row):not(.Col):last-child {margin-right: var(--grid-margin)}
+
+$limit: 100/$grid-step;
+@for $size from 1 through $limit {
+	.Col-#{$size*$grid-step},.Row-#{$size*$grid-step} {
+		flex-basis: $size*$grid-step*1%;
+		flex-grow: 0;
+	}
+}
+
+$theme: map.get($themes, $defaultTheme);
+
+.app .Container:not(.NoDecoration),.App .Container:not(.NoDecoration) {
+	border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%)};
+
+	> .Header, > .Footer {
+		background-repeat: no-repeat;
+		filter: none;
+		background-color: nth(map.get(map.get($theme, 'headers'), 'bg'), 2);
+		color: nth(map.get(map.get($theme, 'headers'), 'fg'), 2);
+		border: 2px solid #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%)};
+	}
+
+	> .Header {
+		border-radius: 5px 5px 0px 0px;
+		border-bottom-width: 0px;
+		background-image: linear-gradient(darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%), nth(map.get(map.get($theme, 'headers'), 'bg'), 2) 50%, lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 5%));
+	}
+	> .Footer {
+		border-radius: 0px 0px 5px 5px;
+		background-image: linear-gradient(lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 5%), nth(map.get(map.get($theme, 'headers'), 'bg'), 2) 50%, darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%));
+		border-top-width: 0px;
+	}
+	> .Content {
+		border-width: 0px 2px 0px 2px;
+		border-style: solid;
+		border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 2), 15%)};
+	}
+
+	&.No-Header {
+		> .Content {
+			border-top-width: 2px;
+			border-top-left-radius: 5px;
+			border-top-right-radius: 5px;
+		}
+	}
+
+	&.No-Footer {
+		> .Content {
+			border-bottom-width: 2px;
+			border-bottom-left-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+	}
+
+	.Container:not(.NoDecoration) {
+		border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%)};
+
+		> .Header, > .Footer {
+			background-color: nth(map.get(map.get($theme, 'headers'), 'bg'), 3);
+			color: nth(map.get(map.get($theme, 'headers'), 'fg'), 3);
+			border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%)};
+		}
+		> .Header {
+			background-image: linear-gradient(darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%), nth(map.get(map.get($theme, 'headers'), 'bg'), 3) 50%, lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 5%));
+		}
+		> .Footer {
+			background-image: linear-gradient(lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 5%), nth(map.get(map.get($theme, 'headers'), 'bg'), 3) 50%, darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%));
+		}
+		> .Content {
+			border-color: #{darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 3), 15%)};
+		}
+	}
+
+}
+
+.Container.Level2 {
+	> .Content {
+		background-image: #ff0000;
+	}
+}
+
+.Container.NoDecoration {
+	border: 0px;
+	border-radius: 0px;
+
+	> .Header, > .Footer, > .Content {
+		background-color: unset;
+		background-image: unset;
+		border: 0px;
+		border-radius: 0px;
+	}
+}
+
+.app,.App {
+	@extend .Container;
+	background-color: map.get($theme, 'bg');
+	color: map.get($theme, 'fg');
+
+	> .Header, > .Footer {
+		background-repeat: no-repeat;
+		filter: none;
+		background-color: nth(map.get(map.get($theme, 'headers'), 'bg'), 1);
+		color: nth(map.get(map.get($theme, 'headers'), 'fg'), 1);
+		border: 0px;
+		border-radius: 0px;
+	}
+
+	> .Header {
+		background-image: linear-gradient(darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 1), 15%), nth(map.get(map.get($theme, 'headers'), 'bg'), 1) 50%, lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 1), 4%));
+	}
+
+	> .Footer {
+		background-image: linear-gradient(lighten(nth(map.get(map.get($theme, 'headers'), 'bg'), 1), 5%), nth(map.get(map.get($theme, 'headers'), 'bg'), 1) 50%, darken(nth(map.get(map.get($theme, 'headers'), 'bg'), 1), 15%));
+	}
+
+}
+

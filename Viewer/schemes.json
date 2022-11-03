@@ -1,7 +1,7 @@
 {
-    "quartz": "D:\\TTS\\development\\styles\\themes\\quartz\\quartz.css",
-    "sketchy": "D:\\TTS\\development\\styles\\themes\\sketchy\\sketchy.css",
-    "slate": "D:\\TTS\\development\\styles\\themes\\slate\\slate.css",
-    "spacelab": "D:\\TTS\\development\\styles\\themes\\spacelab\\spacelab.css",
-    "tts": "D:\\TTS\\development\\styles\\themes\\tts\\tts.css"
+    "quartz": "themes\\quartz\\quartz.css",
+    "sketchy": "themes\\sketchy\\sketchy.css",
+    "slate": "themes\\slate\\slate.css",
+    "spacelab": "themes\\spacelab\\spacelab.css",
+    "bootstrap.tts": "themes\\bootstrap.tts\\bootstrap.tts.css"
 }

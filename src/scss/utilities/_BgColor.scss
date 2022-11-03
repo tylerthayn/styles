@@ -1,0 +1,33 @@
+@use "sass:color";
+@use "sass:map";
+@use "../variables/colors" as *;
+
+/**<BgColor>**/
+@each $name in map.keys($colors) {
+	.bg-#{$name} {
+		background-color: var(--#{$name});
+	}
+
+	.bg-#{$name}-b1 {
+		background-color: var(--#{$name}-b1);
+	}
+
+	.bg-#{$name}-b2 {
+		background-color: var(--#{$name}-b2);
+	}
+
+	.bg-#{$name}-d1 {
+		background-color: var(--#{$name}-d1);
+	}
+
+	.bg-#{$name}-d2 {
+		background-color: var(--#{$name}-d2);
+	}
+
+
+	.bg-gradient-#{$name} {
+		background-image: linear-gradient(lighten(map.get($colors, $name), 15%), map.get($colors, $name) 50%, darken(map.get($colors, $name), 4%));
+		background-repeat: no-repeat;
+		filter: none;
+	}
+}

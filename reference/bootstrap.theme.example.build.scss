@@ -1,0 +1,19 @@
+// Import your custom SCSS variables
+// (Can contain custom variables, theme variable overrides, and Bootstrap core variable overrides)
+@import 'custom-variables.scss';
+
+// Import your theme's SCSS variables
+// (Typically both custom variables and ones that override Bootstrap core variables)
+@import 'theme/variables.scss';
+
+// Import the Bootstrap core
+// (This file imports all Bootstrap core's variables and components from the Bootstrap core package installed via npm)
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+// Import your theme's core SCSS
+// (This file would import a bunch of component SCSS files)
+@import 'theme/theme.scss';
+
+// Import your custom components/styles
+// (This file could import separate files or be a single SCSS file)
+@import 'custom.scss';

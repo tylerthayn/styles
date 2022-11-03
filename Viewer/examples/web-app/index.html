@@ -1,16 +1,5 @@
+<!--
 <style>
-:root {
-	--theme-dark-fg: white;
-}
-body, .WebApp {
-	overflow: hidden;
-}
-
-.WebApp .Main {
-	overflow-y: scroll;
-	overflow: auto;
-}
-
 .nav {
 	min-height: 30px;
 }
@@ -42,7 +31,7 @@ body, .WebApp {
 	background-color: #6693caaa;
 }
 
-.card {
+.Card {
 	margin: 20px;
 	box-shadow: 8px 10px #33669988;
     border-bottom-right-radius: 8px;
@@ -51,7 +40,7 @@ body, .WebApp {
     border-top-left-radius: 8px;
 }
 
-.card-header {
+.Card > .Header {
     padding-left: 0px;
     padding-top: 0px;
     padding-right: 0px;
@@ -59,7 +48,7 @@ body, .WebApp {
     border-top-left-radius: 8px;
 }
 
-.card-header .nav-tabs {
+.Card .Header .nav-tabs {
 	padding-bottom: 0px;
     border-top-right-radius: 8px !important;
     border-top-left-radius: 8px !important;
@@ -68,18 +57,60 @@ body, .WebApp {
 }
 
 </style>
-<div class="WebApp w100p h100p flex column">
-	<div class="nav flex fixed">
-		<i class="link fa fas fa-home fa-2x"></i>
-		<i class="link fa fas fa-arrow-circle-left fa-2x"></i>
-		<i class="link fa fas fa-arrow-circle-right fa-2x"></i>
-		<i class="link fa fa-plus-circle fa-2x disabled"></i>
-		<i class="material-icons">face</i>
-		<span class="expand"></span>
-		<i class="link fa fas fa-ellipsis-v fa-2x"></i>
+-->
+<div class="App">
+	<div class="Header Navbar">
+		<i class="Link fa fas fa-home fa-2x"></i>
+		<i class="Link fa fas fa-arrow-circle-left fa-2x"></i>
+		<i class="Link fa fas fa-arrow-circle-right fa-2x"></i>
+		<i class="Link fa fa-plus-circle fa-2x Disabled"></i>
+		<i class="Link material-icons">face</i>
+		<span class="Spacer"></span>
+		<i class="Link fa fas fa-ellipsis-v fa-2x"></i>
 	</div>
-	<div class="Main expand">
+	<div class="Content">
+<form>
+			<div class="FormRow col-md-12">
+				<div class="col-md-6 PL0">
+					<div class="FormRow Stacked">
+						<label for="Id">Id</label>
+						<input type="text" class="" id="Id"></input>
+					</div>
+				</div>
+				<div class="col-md-6 PR0">
+					<div class="FormRow Stacked">
+						<label for="Name">Name</label>
+						<input type="text" class="" id="Name"></input>
+					</div>
+				</div>
+			</div>
+			<div class="FormRow Stacked">
+				<label for="StackedText01">Description</label>
+				<textarea class="" id="Description"></textarea>
+			</div>
+			 <div class="FormRow Stacked">
+				<label for="Aliases">Aliases <small>comma separated</small></label>
+				<input type="text" class="" id="Aliases"></input>
+			</div>
+			<div class="FormRow ButtonRow">
+				<a class="btn btn-primary TemplateVariable" data-name="Button" data-default="Submit">Submit</a>
+			</div>
+		</form>
 
+
+		<div class="Row">
+			<div class="Container Col-15 No-Footer">
+				<div class="Header"></div>
+				<div class="Content"></div>
+			</div>
+			<div class="Container No-Footer">
+				<div class="Header"></div>
+				<div class="Content"></div>
+			</div>
+		</div>
+	</div>
+
+<!--
 <nav aria-label="breadcrumb" class="">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -88,7 +119,7 @@ body, .WebApp {
 	</ol>
 </nav>
 
-<div class="card">
+<div class="Card">
 	<div class="card-header">
 		<ul class="nav nav-tabs card-header-tabs">
 			<li class="nav-item">
@@ -108,7 +139,7 @@ body, .WebApp {
 	</div>
 </div>
 
-<div class="card">
+<div class="Card">
 	<div class="card-header bg-primary">Basic Card</div>
 	<div class="card-body">
 		<div class="row">
@@ -154,8 +185,165 @@ body, .WebApp {
 	</li>
   </ul>
 </nav>
-
-	<div class="nav navbar Footer fixed">
-		
-	</div>
+-->
+	<div class="Footer"></div>
 </div>
+
+<script>
+$(() => {
+	//$('.Viewer').removeClass('App')
+
+})
+</script>
+<style>
+/*** to push into tts.css ****/
+.Form {
+	flex-grow: 0;
+	flex-shrink: 0;
+}
+
+.Form > .Header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/**************/
+
+.PL0 {
+    padding-left: 0px !important;
+}
+.PR0 {
+    padding-right: 0px !important;
+}
+
+form {
+    width: 100%;
+    border: 0px solid red;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-check label {
+    font-weight: normal;
+}
+
+.FormRow .Title {
+    font-weight: bold;
+}
+
+.FormRow.Inline .Title {
+    padding-right: 1.5rem;
+}
+
+.FormRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ButtonRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.FormRow .FormRow {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.FormRow .col {
+    padding-left: 15px;
+    padding-right: 0px;
+}
+
+.FormRow .col:nth-child(1) {
+    padding-left: 0px;
+    padding-right: 15px;
+}
+
+input:not([type=button]), select, textarea {
+    border-color: #003c6b !important;
+    border-width: 2px !important;
+    color: #003c6b !important;
+}
+
+
+input::placeholder {
+    color: #003c6b !important;
+}
+
+.css-checkbox { position: absolute; overflow: hidden; clip: rect(0 0 0 0); height: 1px; width: 1px; margin: -1px; padding: 0; border: 0; }#inputPreview { display: flex; gap: 20px; justify-content: center;	}.css-checkbox + label { position: relative; font-size: 19px; cursor: pointer; display: inline-flex; align-items: center; height: 25px; color: rgb(0, 61, 107); }.css-checkbox + label::before { content: " "; display: inline-block; vertical-align: middle; margin-right: 3px; width: 19px; height: 19px; background-color: white; border-width: 3px; border-style: solid; border-color: rgb(0, 61, 107); border-radius: 5px; box-shadow: rgba(0, 61, 107, 0.57) 0px 0px 9px 0px inset; }.css-checkbox:checked + label::after { content: " "; background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDAzZDZiIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+"); background-repeat: no-repeat; background-size: 11px 11px; background-position: center center; position: absolute; display: flex; justify-content: center; align-items: center; margin-left: 0px; left: 0px; top: 0px; text-align: center; background-color: transparent; font-size: 10px; height: 25px; width: 25px; }
+
+
+input[type=checkbox]::before, input[type=checkbox]::after {
+    border-color: #003c6b !important;
+    color: #003c6b !important;
+}
+
+.xFormRow .col {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.FormRow.Stacked {
+    flex-direction: column;
+}
+
+.FormRow.Inline {
+    align-items: center;
+}
+
+.FormRow.Inline label {
+    width: auto;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 1.25rem;
+    text-align: left;
+}
+
+.FormRow.Inline input, .FormRow.Inline select {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: auto;
+}
+
+.MyRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.b1 {
+    border: 1px solid black;
+}
+
+xlabel {
+    border: 0px solid black;
+    margin-bottom: 0px;
+    vertical-align: middle;
+    position: static;
+}
+
+.Tyler {
+    border: 1px solid red;
+}
+
+.tyler {
+    background-color: blue;
+}
+
+
+</style>

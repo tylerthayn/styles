@@ -1,0 +1,11 @@
+@use "sass:map";
+@use "../functions/BuildList" as *;
+@use "../mixins/Expander" as *;
+@use "../variables/sizes" as *;
+
+/**<Padding>**/
+@include Expander('P', '', 'padding', $paddings);
+@include Expander('PT', '', 'padding-top', $paddings);
+@include Expander('PB', '', 'padding-bottom', $paddings);
+@include Expander('PL', '', 'padding-left', $paddings);
+@include Expander('PR', '', 'padding-right', $paddings);

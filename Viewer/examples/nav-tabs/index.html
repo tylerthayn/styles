@@ -1,0 +1,53 @@
+<div class="App">
+	<div class="Header">
+		<ul class="NavTabs">
+			<li class="NavItem">
+				<a class="Link active" href="#">Active</a>
+			</li>
+			<li class="NavItem">
+				<a class="Link" href="#">Link</a>
+			</li>
+			<li class="">
+				<a class="Link Disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+			</li>
+		</ul>
+	</div>
+	<div class="Content">
+
+		<div class="Card">
+			<div class="Header">
+				<ul class="NavTabs">
+					<li class="NavItem">
+						<a class="Link active" href="#">Active</a>
+					</li>
+					<li class="NavItem">
+						<a class="Link" href="#">Link</a>
+					</li>
+					<li class="">
+						<a class="Link Disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+					</li>
+				</ul>
+			</div>
+			<div class="Content">
+				
+				<div class="Title">Special title treatment</div>
+				<div class="TextContent">Lorem Ipsum is the single greatest threat. We are not - we are not keeping up with other websites. Lorem Ipsum best not make any more threats to your website. It will be met with fire and fury like the world has never seen. Does everybody know that pig named Lorem Ipsum? An 'extremely credible source' has called my office and told me that Barack Obama's placeholder text is a fraud.</div>
+			</div>
+			<div class="Footer"></div>
+		</div>
+
+	</div>
+	<div class="Footer"></div>
+</div>
+
+<script>
+$(() => {
+
+	$('.NavTabs .Link').on('click', function (event) {
+		log(this)
+
+	})
+
+})
+
+</script>

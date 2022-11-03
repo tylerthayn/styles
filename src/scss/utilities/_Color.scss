@@ -1,0 +1,33 @@
+@use "sass:color";
+@use "sass:map";
+@use "../variables/colors" as *;
+/**<Color>**/
+@each $name in map.keys($colors) {
+	.#{$name} {
+		color: var(--#{$name});
+	}
+
+	.#{$name}-b1 {
+		color: var(--#{$name}-b1);
+	}
+
+	.#{$name}-b2 {
+		color: var(--#{$name}-b2);
+	}
+
+	.#{$name}-d1 {
+		color: var(--#{$name}-d1);
+	}
+
+	.#{$name}-d2 {
+		color: var(--#{$name}-d2);
+	}
+
+	.hover-#{$name}:hover {
+		color: var(--#{$name});
+	}
+
+}
+
+
+

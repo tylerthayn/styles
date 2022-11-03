@@ -1,9 +1,14 @@
 {
+	"card": [
+		"D:\\TTS\\development\\styles\\Viewer\\examples\\card\\index.html"
+	],
     "dialog": [
-        "D:\\TTS\\development\\styles\\Viewer\\examples\\dialog\\index.html",
-        "D:\\TTS\\development\\styles\\Viewer\\examples\\dialog\\style.css"
+        "D:\\TTS\\development\\styles\\Viewer\\examples\\dialog\\index.html"
     ],
-    "theme-preview": [
+	"nav-tabs": [
+		"D:\\TTS\\development\\styles\\Viewer\\examples\\nav-tabs\\index.html"
+	],
+	"theme-preview": [
         "D:\\TTS\\development\\styles\\Viewer\\examples\\theme-preview\\index.html",
         "D:\\TTS\\development\\styles\\Viewer\\examples\\theme-preview\\style.css"
     ],
@@ -14,6 +19,9 @@
     "web-site": [
         "D:\\TTS\\development\\styles\\Viewer\\examples\\web-site\\index.html"
     ],
+	"form": [
+		"D:\\TTS\\development\\styles\\Viewer\\examples\\form\\index.html"
+	],
     "album": [
         "D:\\TTS\\development\\styles\\bootstrap\\site\\content\\docs\\5.2\\examples\\album\\index.html"
     ],

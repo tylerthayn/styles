@@ -1,0 +1,163 @@
+@use "sass:map";
+@use "../variables" as *;
+@use "../mixins/hover" as *;
+@use "../mixins/border-radius" as *;
+
+$nav-link-padding-y:                .5rem !default;
+$nav-link-padding-x:                1rem !default;
+
+:root {
+	--bg: #ffffff;
+}
+
+$white:    #fff !default;
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+$border-width:                1px !default;
+$border-color:                $gray-300 !default;
+
+$border-radius:               .25rem !default;
+$border-radius-lg:            .3rem !default;
+$border-radius-sm:            .2rem !default;
+$component-active-color:      $white !default;
+$component-active-bg:         #336699 !default;
+$spacer: 1rem !default;
+
+$link-color:                              #ffffff !default;
+$link-decoration:                         none !default;
+$link-hover-color:                 darken($link-color, 15%) !default;
+$link-hover-decoration:                   underline !default;
+
+
+$nav-link-disabled-color:           $gray-600 !default;
+
+$nav-tabs-border-color:             $gray-300 !default;
+$nav-tabs-border-width:             $border-width !default;
+$nav-tabs-border-radius:            $border-radius !default;
+$nav-tabs-link-hover-border-color:  $gray-200 $gray-200 $nav-tabs-border-color !default;
+$nav-tabs-link-active-color:        $gray-700 !default;
+$nav-tabs-link-active-bg:           $body-bg !default;
+$nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg !default;
+
+$nav-pills-border-radius:           $border-radius !default;
+$nav-pills-link-active-color:       $component-active-color !default;
+$nav-pills-link-active-bg:          $component-active-bg !default;
+
+$nav-divider-color:                 $gray-200 !default;
+$nav-divider-margin-y:              $spacer * .5 !default;
+
+$grid-columns:                12 !default;
+$grid-gutter-width:           30px !default;
+$grid-row-columns:            6 !default;
+
+// Cards
+
+$card-spacer-y:                     .75rem !default;
+$card-spacer-x:                     1.25rem !default;
+$card-border-width:                 $border-width !default;
+$card-border-radius:                $border-radius !default;
+$card-border-color:                 rgba($black, .125) !default;
+$card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
+$card-cap-bg:                       rgba($black, .03) !default;
+$card-cap-color:                    null !default;
+$card-height:                       null !default;
+$card-color:                        null !default;
+$card-bg:                           $white !default;
+
+$card-img-overlay-padding:          1.25rem !default;
+
+$card-group-margin:                 $grid-gutter-width * .5 !default;
+$card-deck-margin:                  $card-group-margin !default;
+
+$card-columns-count:                3 !default;
+$card-columns-gap:                  1.25rem !default;
+$card-columns-margin:               $card-spacer-y !default;
+
+.NavTabs .Link {
+	display: block;
+	padding: $nav-link-padding-y $nav-link-padding-x;
+	text-decoration: none;
+	font-weight: bold;
+	color: #ffffff;
+
+	&:not(.Disabled):hover {
+		color: red;
+	}
+
+	&:hover:not(.Disabled) {
+		color: red;
+		cursor: pointer;
+	}
+	&.Disabled {
+		color: #c9c9c9aa;
+		pointer-events: none;
+		cursor: default;
+	}
+}
+
+.NavTabs {
+	--bg: #ffffff;
+	display: flex;
+	flex-wrap: wrap;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+	border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+
+  .Link {
+    margin-bottom: -$nav-tabs-border-width;
+    background-color: transparent;
+    border: $nav-tabs-border-width solid transparent;
+    @include border-top-radius($nav-tabs-border-radius);
+
+    @include hover-focus() {
+      // Prevents active .nav-link tab overlapping focus outline of previous/next .nav-link
+      isolation: isolate;
+      border-color: $nav-tabs-link-hover-border-color;
+    }
+
+    &.Disabled {
+      color: $nav-link-disabled-color;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .Link.active,
+  .ul.show .Link {
+    color: $nav-tabs-link-active-color;
+    background-color: var(--bg);
+    border-color: $nav-tabs-link-active-border-color;
+  }
+
+  .dropdown-menu {
+    // Make dropdown border overlap tab border
+    margin-top: -$nav-tabs-border-width;
+    // Remove the top rounded corners here since there is a hard edge above the menu
+    @include border-top-radius(0);
+  }
+}
+
+.App > .Header > .NavTabs {
+	--bg: #d9e5f2ff;
+}
+
+
+.card-header-tabs {
+  margin-right: -$card-spacer-x * .5;
+  margin-bottom: -$card-spacer-y;
+  margin-left: -$card-spacer-x * .5;
+  border-bottom: 0;
+}
+
+
+

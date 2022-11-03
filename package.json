@@ -2,15 +2,16 @@
   "name": "@tyler.thayn/styles",
   "version": "0.1.0",
   "description": "Base styles set",
-  "main": "index.js",
+  "main": "tts.css",
   "scripts": {
   	"build-fontawesome": "node .Build/scripts/font-awesome.js",
   	"build-materialicons": "node .Build/scripts/material-icons.js",
-    "build-themes": "node .Build/scripts/BuildThemes.js",
+	"build-theme": "sass src/theme/theme.scss src/css/bootstrap.tts.css --no-source-map",
+	"build-themes": "node .Build/scripts/BuildThemes.js",
     "clone-bootstrap": "git clone https://github.com/twbs/bootstrap.git",
 	"clone-fontawesome": "git clone https://github.com/FortAwesome/Font-Awesome.git",
 	"clone-materialicons": "git clone https://github.com/marella/material-icons.git",
-    "init": "npm run-script clone-bootstrap && npm run-script build-themes && npm run-script init-viewer",
+    "init": "npm run-script clone-bootstrap && npm run-script clone-fontawesome && npm run-script clone-materialicons && npm run-script build-fontawesome && npm run-script build-materialicons && npm run-script build-themes && npm run-script init-viewer",
     "init-viewer": "node .Build/scripts/InitViewer.js"
   },
   "repository": {

@@ -1,94 +1,95 @@
-.center {
+/**<Flex>**/
+.Center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.flex {
+.Flex {
 	display: flex;
 }
 
-.flex.col {
+.Flex.Col {
 	flex-direction: column;
 }
 
-.flex.col.reverse {
+.Flex.Col.Reverse {
 	flex-direction: column-reverse;
 }
 
-.flex.content-start {
+.Flex.Content-Start {
 	justify-content: flex-start;
 }
 
-.flex.content-end {
+.Flex.Content-End {
 	justify-content: flex-end;
 }
 
-.flex.content-between {
+.Flex.Content-Between {
 	align-content: space-between;
 }
 
-.flex.content-center {
+.Flex.Content-Center {
 	justify-content: center;
 }
 
-.flex.content-around {
+.Flex.Content-Around {
 	align-content: space-around;
 }
 
-.flex.content-stretch {
+.Flex.Content-Stretch {
 	align-content: stretch;
 }
 
 
-.flex.items-start {
+.Flex.Items-Start {
 	align-items: flex-start;
 }
 
-.flex.items-end {
+.Flex.Items-End {
 	align-items: flex-end;
 }
 
-.flex.items-center {
+.Flex.Items-Center {
 	align-items: center;
 }
 
-.flex.nowrap {
+.Flex.NoWrap {
 	flex-wrap: nowrap;
 }
 
-.flex.wrap {
+.Flex.Wrap {
 	flex-wrap: wrap;
 }
 
-.flex.row {
+.Flex.Row {
 	flex-direction: row;
 	margin: 0px;
 	flex-wrap: nowrap;
 }
 
-.flex.row.reverse {
+.Flex.Row.Reverse {
 	flex-direction: row-reverse;
 }
 
-.flex > .fixed {
+.Flex > .Fixed {
 	flex-shrink: 0;
 	flex-grow: 0;
 }
 
-.flex > .expand {
+.Flex > .Expand {
 	flex-shrink: 1;
 	flex-grow: 1;
 }
 
-.flex > .self-start {
+.Flex > .Self-Start {
 	align-self: flex-start;
 }
 
-.flex > .self-end {
+.Flex > .Self-End {
 	align-self: flex-end;
 }
 
-.flex > .self-center {
+.Flex > .Self-Center {
 	align-self: center;
 }
