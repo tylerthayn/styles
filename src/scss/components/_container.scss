@@ -104,7 +104,7 @@ html, body {
     flex-shrink: 1;
 }
 
-.Row > *, .Col > *, .Content > :not(.Row):not(.Col) {
+.Row > div, .Col > div, .Content > div:not(.Row):not(.Col) {
     width: auto;
     height: auto;
     margin: calc(var(--grid-margin) / 2);
