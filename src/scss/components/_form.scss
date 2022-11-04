@@ -12,6 +12,10 @@ form {
 		margin: 0px;
 	}
 
+	.Row {
+		flex-wrap: wrap;
+	}
+
 	label, input, select, textarea, a, div.Title, .FormGroup {
 		margin: 0.3rem 0.5rem 0.3rem 0.5rem;
 	}
@@ -21,7 +25,7 @@ form {
 	}
 
 	.Group {
-		border: 2px solid #003c6b;
+		border: 2px inset #003c6b;
 		border-radius: 5px;
 		width: auto;
 		margin-left: 0.5rem;

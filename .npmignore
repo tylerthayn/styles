@@ -2,4 +2,13 @@
 bootstrap/
 font-awesome/
 material-icons/
-!/
+*/bootstrap/
+*/font-awesome/
+*/material-icons/
+\!/
+.Build/
+reference/
+src/
+Viewer/
+
+

@@ -25607,7 +25607,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   color: #ffffff;
-  padding: 1rem;
+  padding: 0.6rem;
 }
 .Navbar.Col {
   flex-direction: column;
@@ -25714,6 +25714,9 @@ form > div {
 form .Row, form .Col, form .Inline {
   margin: 0px;
 }
+form .Row {
+  flex-wrap: wrap;
+}
 form label, form input, form select, form textarea, form a, form div.Title, form .FormGroup {
   margin: 0.3rem 0.5rem 0.3rem 0.5rem;
 }
@@ -25721,7 +25724,7 @@ form .Row label {
   flex-grow: 0;
 }
 form .Group {
-  border: 2px solid #003c6b;
+  border: 2px inset #003c6b;
   border-radius: 5px;
   width: auto;
   margin-left: 0.5rem;

@@ -25325,7 +25325,7 @@ html, body {
   flex-shrink: 1;
 }
 
-.Row > *, .Col > *, .Content > :not(.Row):not(.Col) {
+.Row > div, .Col > div, .Content > div:not(.Row):not(.Col) {
   width: auto;
   height: auto;
   margin: calc(var(--grid-margin) / 2);
@@ -25607,7 +25607,7 @@ html, body {
   flex-direction: row;
   align-items: center;
   color: #ffffff;
-  padding: 1rem;
+  padding: 0.6rem;
 }
 .Navbar.Col {
   flex-direction: column;
@@ -25701,4 +25701,68 @@ html, body {
   margin-bottom: -0.75rem;
   margin-left: -0.625rem;
   border-bottom: 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+form > div {
+  display: flex;
+  flex-direction: column;
+}
+form .Row, form .Col, form .Inline {
+  margin: 0px;
+}
+form .Row {
+  flex-wrap: wrap;
+}
+form label, form input, form select, form textarea, form a, form div.Title, form .FormGroup {
+  margin: 0.3rem 0.5rem 0.3rem 0.5rem;
+}
+form .Row label {
+  flex-grow: 0;
+}
+form .Group {
+  border: 2px inset #003c6b;
+  border-radius: 5px;
+  width: auto;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+form .Group label {
+  font-weight: normal;
+  font-size: 1rem;
+}
+form .Stacked {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+form input::placeholder {
+  color: #003c6b !important;
+}
+form .Row.Buttons {
+  justify-content: center;
+  align-content: center;
+}
+
+textarea {
+  min-height: 75px;
+}
+
+.btn {
+  flex-grow: 0;
+}
+
+input:not([type=button]), select, textarea {
+  border-color: #003c6b;
+  border-width: 2px;
+  border-radius: 5px;
+  color: #003c6b;
+}
+
+input[type=checkbox]::before, input[type=checkbox]::after {
+  border-color: #003c6b;
+  color: #003c6b;
 }
