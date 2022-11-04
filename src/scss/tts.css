@@ -25262,6 +25262,7 @@ html, body {
 .Container > .Header, .Dialog > .Header, .Card > .Header, .App > .Header, .Container > .Footer, .Dialog > .Footer, .Card > .Footer, .App > .Footer {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 .Container > .Header, .Dialog > .Header, .Card > .Header, .App > .Header {
   width: 100%;
@@ -25321,7 +25322,6 @@ html, body {
 
 .Col > *, .Row > * {
   flex-grow: 1;
-  flex-shrink: 1;
 }
 
 .Row > div, .Col > div, .Content > div:not(.Row):not(.Col) {

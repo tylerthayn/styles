@@ -33,6 +33,7 @@ html, body {
 	> .Header, > .Footer {
 		display: flex;
 		align-items: center;
+		flex-shrink: 0;
 	}
 
 	> .Header {
@@ -101,7 +102,6 @@ html, body {
 
 .Col > *,.Row > * {
     flex-grow: 1;
-    flex-shrink: 1;
 }
 
 .Row > div, .Col > div, .Content > div:not(.Row):not(.Col) {
