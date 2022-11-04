@@ -1,12 +1,5 @@
 @charset "UTF-8";
 /*!
- * Bootstrap v4.6.2 (https://getbootstrap.com/)
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700");
-/*!
  * Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  * Copyright 2022 Fonticons, Inc.
@@ -12361,6 +12354,12 @@ a {
   border-color: #e7ffff !important;
 }
 
+/*!
+ * Bootstrap v4.6.2 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 :root {
   --blue: #336699;
   --indigo: #6610f2;
@@ -12417,7 +12416,7 @@ body {
   line-height: 1.5;
   color: #777;
   text-align: left;
-  background-color: #d9e5f2;
+  background-color: #d9e5f2ff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -12833,7 +12832,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #d9e5f2;
+  background-color: #d9e5f2ff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -16338,15 +16337,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #d9e5f2, 0 0 0 0.2rem rgba(51, 102, 153, 0.25);
+  box-shadow: 0 0 0 1px #d9e5f2ff, 0 0 0 0.2rem rgba(51, 102, 153, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #d9e5f2, 0 0 0 0.2rem rgba(51, 102, 153, 0.25);
+  box-shadow: 0 0 0 1px #d9e5f2ff, 0 0 0 0.2rem rgba(51, 102, 153, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #d9e5f2, 0 0 0 0.2rem rgba(51, 102, 153, 0.25);
+  box-shadow: 0 0 0 1px #d9e5f2ff, 0 0 0 0.2rem rgba(51, 102, 153, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -16537,8 +16536,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #d9e5f2;
-  border-color: #dee2e6 #dee2e6 #d9e5f2;
+  background-color: #d9e5f2ff;
+  border-color: #dee2e6 #dee2e6 #d9e5f2ff;
 }
 
 .nav-tabs .dropdown-menu {
