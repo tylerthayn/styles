@@ -1,9 +1,9 @@
 
 bootstrap/
-font-awesome/
+Font-Awesome/
 material-icons/
 */bootstrap/
-*/font-awesome/
+*/Font-Awesome/
 */material-icons/
 \!/
 .Build/
